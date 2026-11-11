@@ -55,7 +55,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF9F2] text-[#251714]">
+    <div className="min-h-screen flex flex-col bg-[#E8F4FD] text-[#1E0D08]">
       {/* 01: Navigation Bar */}
       <Navbar
         language={language}
@@ -85,7 +85,10 @@ export function App() {
         {/* 05: Today's Flavour (Belgian Chocolate Dramatic Banner) */}
         <FeaturedFlavour
           flavour={todayFlavour}
-          onTryToday={() => handleOpenMenuModal('cones')}
+          onTryToday={() => {
+            const el = document.getElementById('flavours-cycle');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
           language={language}
         />
 

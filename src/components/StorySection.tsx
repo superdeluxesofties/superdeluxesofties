@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Milk, Users, Award, MapPin } from 'lucide-react';
+import { Milk, Sparkles, Heart, Smile, Users, Award, Star, RefreshCw, MapPin } from 'lucide-react';
 import { STORE_INFO } from '../data/superDeluxeData';
 
 interface StorySectionProps {
@@ -7,55 +7,102 @@ interface StorySectionProps {
 }
 
 export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
-  const values = [
+  // 08 Visually Separated Cards for "WHAT WE BELIEVE IN"
+  const beliefs = [
     {
-      icon: Award,
-      title: language === 'ta' ? 'உயர் தரம்' : 'Premium Quality',
-      desc: language === 'ta' ? 'தூய பால், பிரீமியம் பொருட்கள்' : '100% farm-fresh cow milk & fine European cocoa',
-    },
-    {
+      num: '01',
+      title: 'REAL MILK. REAL GOODNESS.',
+      desc: 'Creamy softies made with 100% real milk.',
       icon: Milk,
-      title: language === 'ta' ? 'தினமும் புதியது' : 'Freshly Made Daily',
-      desc: language === 'ta' ? 'ஒவ்வொரு நாளும் புதிய சுழற்சி' : 'Churned fresh on-site in small artisan batches',
+      color: 'text-[#2308ca]',
+      bg: 'bg-blue-50',
     },
     {
-      icon: Users,
-      title: language === 'ta' ? 'குடும்பங்கள் விரும்பும்' : 'Kids & Family Friendly',
-      desc: language === 'ta' ? 'அனைவருக்கும் மகிழ்ச்சியான சூழல்' : 'Joyful parlour atmosphere beloved by all generations',
-    },
-    {
+      num: '02',
+      title: 'FRESHNESS IN EVERY SERVE.',
+      desc: 'Freshly prepared at your outlet, every day.',
       icon: Sparkles,
-      title: language === 'ta' ? 'சிறந்த சுவை & விலை' : 'Great Taste, Great Value',
-      desc: language === 'ta' ? 'மலிவு விலையில் பெருமகிழ்ச்சி' : 'Gourmet artisanal treats starting from just ₹39',
+      color: 'text-[#cf0924]',
+      bg: 'bg-rose-50',
+    },
+    {
+      num: '03',
+      title: 'FLAVOURS THAT SPARK JOY.',
+      desc: 'Exciting flavours for every kind of craving.',
+      icon: Heart,
+      color: 'text-[#e69500]',
+      bg: 'bg-amber-50',
+    },
+    {
+      num: '04',
+      title: 'HAPPINESS FOR EVERYONE.',
+      desc: 'Premium indulgence at pocket-friendly prices.',
+      icon: Smile,
+      color: 'text-[#2308ca]',
+      bg: 'bg-blue-50',
+    },
+    {
+      num: '05',
+      title: 'MADE FOR EVERY GENERATION.',
+      desc: 'From childhood favourites to timeless treats.',
+      icon: Users,
+      color: 'text-[#cf0924]',
+      bg: 'bg-rose-50',
+    },
+    {
+      num: '06',
+      title: 'MORE THAN A DESSERT.',
+      desc: 'Little treats. Big smiles. Lasting memories.',
+      icon: Award,
+      color: 'text-[#e69500]',
+      bg: 'bg-amber-50',
+    },
+    {
+      num: '07',
+      title: 'EVERY VISIT MATTERS.',
+      desc: 'Every customer deserves a reason to smile.',
+      icon: Star,
+      color: 'text-[#2308ca]',
+      bg: 'bg-blue-50',
+    },
+    {
+      num: '08',
+      title: 'ALWAYS SOMETHING NEW.',
+      desc: 'New flavours. New cravings. New reasons to return.',
+      icon: RefreshCw,
+      color: 'text-[#cf0924]',
+      bg: 'bg-rose-50',
     },
   ];
 
   return (
-    <section id="story" className="py-16 md:py-24 bg-white border-y border-[#EED9C4]/60 relative">
-      <div className="content-container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Left: Real Storefront Photo with interactive location tag */}
+    <section id="story" className="py-10 md:py-16 bg-[#E8F4FD] border-y border-sky-200/80 relative">
+      <div className="content-container space-y-12 md:space-y-14">
+        
+        {/* ========================================================
+            PART 1: ABOUT THE BRAND (Narrative & Storefront)
+            ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Left: Storefront Photo */}
           <div className="lg:col-span-5 relative group">
-            <div className="relative overflow-hidden rounded-3xl shadow-medium border-4 border-cream-200">
+            <div className="relative overflow-hidden rounded-2xl shadow-md border-3 border-white">
               <img
                 src="/images/storefront/storefront.jpg"
                 alt="Super Deluxe Softies Parlour Storefront"
-                className="w-full h-[360px] sm:h-[420px] md:h-[460px] object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-[280px] sm:h-[320px] object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
 
-              {/* Gradient overlay on bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-chocolate-darker/80 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
 
               {/* Verified Storefront Badge */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg border border-cream-border flex items-center justify-between">
+              <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-md border border-slate-200 flex items-center justify-between">
                 <div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-chocolate">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>SUPER DELUXE PARLOUR</span>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-chocolate">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span className="text-[#2308ca] font-extrabold">SUPER DELUXE PARLOUR</span>
                   </div>
-                  <p className="text-[11px] text-chocolate-muted mt-0.5">
+                  <p className="text-[10px] text-chocolate-muted mt-0.5">
                     Guduvanchery, Chennai • Open 11 AM - 11 PM
                   </p>
                 </div>
@@ -63,78 +110,92 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
                   href={STORE_INFO.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-strawberry hover:bg-strawberry-hover text-white text-xs font-bold py-2 px-3 rounded-xl flex items-center gap-1 transition-colors shadow-xs"
+                  className="bg-[#2308ca] hover:bg-[#1b069d] text-white text-[11px] font-bold py-1.5 px-2.5 rounded-lg flex items-center gap-1 transition-colors shadow-xs"
                 >
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3 h-3 text-[#FFCC33]" />
                   <span>Visit</span>
                 </a>
               </div>
             </div>
 
-            {/* Corner Decorative Accent */}
-            <div className="absolute -top-3 -left-3 bg-mango text-chocolate text-xs font-display font-bold py-1.5 px-3.5 rounded-full shadow-md border-2 border-white">
-              ★ 100% Real Milk
+            <div className="absolute -top-2.5 -left-2.5 bg-[#FFCC33] text-[#1E0D08] text-[10px] font-display font-extrabold py-1 px-3 rounded-full shadow-md border border-white">
+              Made with Real Milk &amp; Zero Added Oils
             </div>
           </div>
 
-          {/* Right: Story Headline, Copy & 4 Brand Values */}
+          {/* Right: Brand Origin Story */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-strawberry font-display">
-                {language === 'ta' ? 'எங்கள் கதை' : 'OUR STORY'}
+            <div className="inline-flex items-center gap-2 mb-2">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#cf0924] font-display bg-white px-3 py-0.5 rounded-full border border-[#cf0924]/20 shadow-2xs">
+                {language === 'ta' ? 'பிராண்ட் பற்றி' : 'ABOUT THE BRAND'}
               </span>
-              <span className="squiggly-accent"></span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-chocolate leading-tight">
-              {language === 'ta' ? (
-                <>அன்போடு செய்து,<br />புன்னகையோடு வழங்குகிறோம்.</>
-              ) : (
-                <>Made with Love.<br />Served with Smiles.</>
-              )}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-chocolate leading-tight">
+              We Didn't Start with Ice Cream.<br />
+              <span className="text-[#cf0924]">We Started with a Craving.</span>
             </h2>
 
-            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-chocolate-muted leading-relaxed font-medium">
-              {language === 'ta'
-                ? 'சூப்பர் டீலக்ஸ் சாஃப்டீஸில், உங்கள் அன்றாட தருணங்களில் மகிழ்ச்சியைக் கொண்டுவர ஒவ்வொரு ஸ்கூப்பும் மிகுந்த அக்கறையுடன் தயாரிக்கப்படுகிறது. கிளாசிக் சாஃப்டீஸ் முதல் சுவையான சண்டேக்கள் வரை, மகிழ்ச்சியை எளிதாக்குகிறோம்.'
-                : 'At Super Deluxe Softies, every scoop is crafted with care to bring joy to your everyday moments. From classic softies to exciting treats, we make happiness simple, one scoop at a time.'}
-            </p>
-
-            {/* 4 Brand Values Grid */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {values.map((val, idx) => {
-                const IconComponent = val.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-cream-100 hover:bg-cream-200 transition-colors border border-cream-border group"
-                  >
-                    <div className="p-2.5 rounded-xl bg-white text-strawberry shadow-xs border border-cream-border group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-chocolate font-display">
-                        {val.title}
-                      </h4>
-                      <p className="text-xs text-chocolate-muted mt-0.5 leading-snug">
-                        {val.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Pure Milk Guarantee Quote */}
-            <div className="mt-7 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 flex items-center gap-3">
-              <span className="text-2xl">🥛</span>
-              <p className="text-xs sm:text-sm font-bold text-[#512D25]">
-                {STORE_INFO.pureMilkPledge}
+            <div className="mt-3.5 space-y-2.5 text-sm sm:text-base text-chocolate-muted font-medium leading-relaxed">
+              <p className="text-chocolate font-semibold text-base sm:text-lg">
+                That little moment after a meal. That sudden craving for something sweet. A feeling we all know.
+              </p>
+              <p>
+                At Super Deluxe Softies, we believe every craving deserves something special.
+              </p>
+              <p>
+                Made with 100% real milk, freshly prepared, and bursting with exciting flavours, our softies turn everyday moments into little memories of happiness.
+              </p>
+              <p className="text-[#2308ca] font-bold text-base sm:text-lg pt-1 font-display">
+                Because we don't just serve desserts. We serve smiles.
               </p>
             </div>
           </div>
-
         </div>
+
+        {/* ========================================================
+            PART 2: WHAT WE BELIEVE IN (8 Compact Separated Cards)
+            ======================================================== */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#2308ca] font-display bg-white px-3 py-0.5 rounded-full border border-[#2308ca]/25 shadow-2xs">
+              {language === 'ta' ? 'நாங்கள் நம்புவது' : 'WHAT WE BELIEVE IN'}
+            </span>
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-chocolate mt-2">
+              Eight Pillars That Guide Every Serve
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {beliefs.map((item) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={item.num}
+                  className="bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-black tracking-wider text-slate-400 font-display">
+                        {item.num}
+                      </span>
+                      <div className={`w-7 h-7 rounded-lg ${item.bg} ${item.color} flex items-center justify-center`}>
+                        <IconComp className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+                    <h4 className="font-display font-bold text-xs sm:text-sm text-chocolate leading-snug">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-chocolate-muted font-medium mt-1 leading-snug">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   );

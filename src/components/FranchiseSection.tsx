@@ -18,7 +18,7 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
     },
     {
       title: language === 'ta' ? 'உயர் தர தயாரிப்புகள்' : 'High Quality Products',
-      desc: language === 'ta' ? '100% தூய பால், தாவரவியல் பொருட்கள்' : '100% pure cow milk, zero palm oil, 10-day flavour rotation',
+      desc: language === 'ta' ? 'உண்மையான பால், பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with real milk & zero added oils, 10-day flavour rotation',
     },
     {
       title: language === 'ta' ? 'நிரூபிக்கப்பட்ட வணிக முறை' : 'Proven Business Model',
@@ -31,28 +31,31 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
   ];
 
   return (
-    <section id="partner" className="py-16 md:py-24 bg-[#FFF9F2] relative">
+    <section id="partner" className="py-16 md:py-24 bg-[#E8F4FD] relative">
       <div className="content-container">
         
-        {/* Main Franchise Container Card */}
-        <div className="bg-gradient-to-br from-cream-100 via-white to-strawberry-light/40 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border-2 border-[#EED9C4] shadow-medium relative overflow-hidden">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        {/* Main Franchise Container Card with vibrant ambient border */}
+        <div className="bg-gradient-to-br from-white via-blue-50/20 to-white rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border-2 border-[#FFCC33]/90 shadow-medium relative overflow-hidden">
+          {/* Ambient colorful glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#2308ca]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FFCC33]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             
             {/* Left: Headline, Bullets & Enquire CTA */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-strawberry font-display flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-strawberry" />
+                <span className="text-xs font-extrabold uppercase tracking-widest text-[#cf0924] font-display flex items-center gap-1.5 bg-[#fee8eb] px-3 py-1 rounded-full border border-[#cf0924]/20 shadow-2xs">
+                  <Building2 className="w-3.5 h-3.5 text-[#cf0924]" />
                   <span>FRANCHISE & PARTNERSHIPS</span>
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-chocolate leading-tight">
                 {language === 'ta' ? (
-                  <>சூப்பர் டீலக்ஸ் உடன் இணையுங்கள்<br /><span className="text-strawberry">இனிய வணிகத்தை தொடங்குங்கள்.</span></>
+                  <>சூப்பர் டீலக்ஸ் உடன் இணையுங்கள்<br /><span className="text-[#2308ca]">இனிய வணிகத்தை தொடங்குங்கள்.</span></>
                 ) : (
-                  <>PARTNER WITH SUPER DELUXE<br /><span className="text-strawberry">Build a sweet business with us.</span></>
+                  <>PARTNER WITH SUPER DELUXE<br /><span className="text-[#2308ca]">Build a sweet business with us.</span></>
                 )}
               </h2>
 
@@ -66,7 +69,7 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
               <div className="mt-8 space-y-4 w-full">
                 {points.map((pt, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-strawberry shrink-0 mt-0.5 fill-strawberry/10" />
+                    <CheckCircle2 className="w-5 h-5 text-[#2308ca] shrink-0 mt-0.5 fill-[#ece8fc]" />
                     <div>
                       <h4 className="text-sm font-bold text-chocolate font-display">
                         {pt.title}
@@ -103,7 +106,7 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
 
             {/* Right: Visual of Parlour + Mascot Banner */}
             <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-3xl overflow-hidden shadow-floating border-4 border-white bg-white">
+              <div className="relative rounded-3xl overflow-hidden shadow-floating border-4 border-[#FFCC33] bg-white">
                 <img
                   src="/images/storefront/storefront.jpg"
                   alt="Super Deluxe Storefront & Franchise Setup"
@@ -114,8 +117,8 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-chocolate-darker/80 via-transparent to-transparent"></div>
 
                 {/* Overlaid Mascot Badge */}
-                <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-cream-border flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-strawberry bg-cream-100">
+                <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border-2 border-[#2308ca] flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-[#cf0924] bg-slate-100">
                     <img
                       src="/images/expressions/happy_card.jpg"
                       alt="Mr. Deluxe"
@@ -123,7 +126,7 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
                     />
                   </div>
                   <div>
-                    <h5 className="text-xs font-display font-bold text-chocolate">
+                    <h5 className="text-xs font-display font-bold text-[#2308ca]">
                       Franchise Support Guarantee
                     </h5>
                     <p className="text-[11px] text-chocolate-muted">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Mail, MapPin, Instagram, Clock, ExternalLink, Phone } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Instagram, Youtube, Clock, ExternalLink } from 'lucide-react';
 import { STORE_INFO } from '../data/superDeluxeData';
 
 interface ContactSectionProps {
@@ -27,8 +27,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
       href: `mailto:${STORE_INFO.email}`,
       btnLabel: 'Send Email',
       badge: 'Official',
-      color: 'bg-red-50 text-red-700 border-red-200 hover:border-red-400',
-      iconBg: 'bg-red-500 text-white',
+      color: 'bg-[#fee8eb] text-[#cf0924] border-[#cf0924]/30 hover:border-[#cf0924]',
+      iconBg: 'bg-[#cf0924] text-white shadow-glow-red',
     },
     {
       id: 'maps',
@@ -38,8 +38,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
       href: STORE_INFO.mapsUrl,
       btnLabel: 'Get Directions',
       badge: 'Guduvanchery',
-      color: 'bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-400',
-      iconBg: 'bg-blue-600 text-white',
+      color: 'bg-[#ece8fc] text-[#2308ca] border-[#2308ca]/30 hover:border-[#2308ca]',
+      iconBg: 'bg-[#2308ca] text-white shadow-glow-blue',
     },
     {
       id: 'instagram',
@@ -52,17 +52,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
       color: 'bg-pink-50 text-pink-700 border-pink-200 hover:border-pink-400',
       iconBg: 'bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white',
     },
+    {
+      id: 'youtube',
+      icon: Youtube,
+      title: 'YouTube',
+      value: STORE_INFO.youtube,
+      href: STORE_INFO.youtubeUrl,
+      btnLabel: 'Watch & Subscribe',
+      badge: 'Channel',
+      color: 'bg-red-50 text-[#cf0924] border-red-200 hover:border-[#cf0924]',
+      iconBg: 'bg-[#FF0000] text-white shadow-glow-red',
+    },
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white border-t border-[#EED9C4]/60 relative">
+    <section id="contact" className="py-16 md:py-24 bg-[#E8F4FD] border-t border-sky-200/80 relative">
       <div className="content-container">
         
         {/* Header Block */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 mb-2">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-strawberry font-display">
-              {language === 'ta' ? 'தொடர்பு கொள்ள' : 'GET IN TOUCH'}
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#2308ca] font-display flex items-center gap-1.5">
+              <span>★</span> {language === 'ta' ? 'தொடர்பு கொள்ள' : 'GET IN TOUCH'}
             </span>
           </div>
 
@@ -71,7 +82,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
           </h2>
 
           <div className="flex justify-center mt-3 mb-4">
-            <span className="squiggly-accent"></span>
+            <span className="squiggly-accent-gold"></span>
           </div>
 
           <p className="text-chocolate-muted text-sm sm:text-base font-medium">
@@ -81,8 +92,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* 4 Contact Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* 5 Contact Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
           {contacts.map((c) => {
             const IconComponent = c.icon;
             return (

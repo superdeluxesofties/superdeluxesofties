@@ -24,14 +24,9 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
   };
 
   return (
-    <section id="flavours-cycle" className="py-16 md:py-24 bg-[#14233c] text-white relative overflow-hidden">
-      {/* Background Subtle Sparkles */}
-      <div className="absolute top-10 left-10 text-white/10 text-6xl pointer-events-none select-none">
-        ✨
-      </div>
-      <div className="absolute bottom-10 right-10 text-white/10 text-7xl pointer-events-none select-none">
-        🍨
-      </div>
+    <section id="flavours-cycle" className="py-16 md:py-24 bg-gradient-to-br from-[#120366] via-[#2308ca] to-[#14047a] text-white relative overflow-hidden">
+      {/* Radiant ambient glow */}
+      <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-[#FFCC33]/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="content-container relative z-10">
         
@@ -39,18 +34,25 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-amber-300 font-display flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-amber-300" />
-                <span>DAILY ROTATION ENGINE</span>
+              <span className="text-xs font-black uppercase tracking-widest text-[#FFCC33] font-display flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-full border border-[#FFCC33]/30">
+                <Calendar className="w-3.5 h-3.5 text-[#FFCC33]" />
+                <span>{language === 'ta' ? '10-நாள் சுவை பிரச்சாரம்' : 'THE 10-DAY FLAVOUR CAMPAIGN'}</span>
               </span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white">
-              {language === 'ta' ? '10 நாட்கள் • 10 சுவைகள்' : '10 DAYS • 10 FLAVOURS'}
+              {language === 'ta' ? 'பத்து நாட்கள். புன்னகைக்க பத்து காரணங்கள்.' : 'Ten Days. Ten Reasons to Smile.'}
             </h2>
 
-            <p className="text-blue-200 text-sm sm:text-base font-medium mt-1">
-              {language === 'ta' ? 'தினமும் புதிதாக ஒன்று.' : 'Something new. Every single day.'}
+            <p className="text-blue-100 text-sm sm:text-base font-semibold mt-1.5">
+              {language === 'ta'
+                ? 'ஒவ்வொரு நாளும் புதிய சுவை. புன்னகைக்க ஒரு புதிய காரணம்.'
+                : 'A new flavour every day. A new reason to smile.'}
+            </p>
+            <p className="text-xs sm:text-sm text-white/80 mt-1">
+              {language === 'ta'
+                ? 'எங்கள் சுவை வரிசையை உருட்டி உங்கள் அடுத்த விருப்பத்தை கண்டறியவும்.'
+                : 'Swipe through our flavour lineup and discover your next favourite.'}
             </p>
           </div>
 
@@ -59,7 +61,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
             <button
               type="button"
               onClick={() => handleScroll('left')}
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 text-white flex items-center justify-center transition-colors shadow-sm"
               aria-label="Scroll left"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -67,7 +69,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
             <button
               type="button"
               onClick={() => handleScroll('right')}
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors"
+              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 text-white flex items-center justify-center transition-colors shadow-sm"
               aria-label="Scroll right"
             >
               <ArrowRight className="w-5 h-5" />
@@ -89,8 +91,8 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                 onClick={() => onSelectFlavour(item)}
                 className={`snap-start shrink-0 w-[190px] sm:w-[220px] rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 relative group ${
                   isToday
-                    ? 'bg-gradient-to-b from-[#FFFDF9] to-[#FFF4E6] text-chocolate ring-4 ring-strawberry shadow-2xl scale-102'
-                    : 'bg-white/10 hover:bg-white/15 text-white border border-white/15 hover:border-white/30'
+                    ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow scale-102'
+                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-[#FFCC33]/60'
                 }`}
               >
                 {/* Top Badge: Today or Day X */}
@@ -98,14 +100,14 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                   <span
                     className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
                       isToday
-                        ? 'bg-strawberry text-white font-display'
+                        ? 'bg-[#cf0924] text-white font-display shadow-xs'
                         : 'bg-white/15 text-blue-100'
                     }`}
                   >
                     {isToday ? "★ TODAY'S STAR" : item.dayLabel}
                   </span>
                   {isToday && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-strawberry animate-ping"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#cf0924] animate-ping"></span>
                   )}
                 </div>
 
@@ -114,7 +116,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                   <img
                     src={item.cardImage}
                     alt={item.name}
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full object-contain rounded-xl"
                     loading="lazy"
                   />
                 </div>
@@ -127,15 +129,15 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                     {language === 'ta' && item.tamilName ? item.tamilName : item.name}
                   </h3>
                   <p className={`text-xs mt-1 line-clamp-2 leading-relaxed ${
-                    isToday ? 'text-chocolate-muted' : 'text-blue-200'
+                    isToday ? 'text-chocolate-muted' : 'text-blue-100'
                   }`}>
                     {item.tagline}
                   </p>
                 </div>
 
                 {/* Bottom Click to View */}
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
-                  <span className={`text-[11px] font-bold ${isToday ? 'text-strawberry' : 'text-amber-300'}`}>
+                <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
+                  <span className={`text-[11px] font-bold ${isToday ? 'text-[#cf0924]' : 'text-[#FFCC33]'}`}>
                     {isToday ? 'Serving Now' : 'Click to preview'}
                   </span>
                   <span className="text-xs">→</span>

@@ -92,14 +92,14 @@ export const FranchiseModal: React.FC<FranchiseModalProps> = ({
         {/* Modal Top Header */}
         <div className="p-6 bg-gradient-to-r from-cream-100 to-cream-200 border-b border-cream-border flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-strawberry text-white flex items-center justify-center shadow-xs">
+            <div className="w-10 h-10 rounded-2xl bg-[#2308ca] text-white flex items-center justify-center shadow-xs">
               <Building2 className="w-5 h-5" />
             </div>
             <div>
               <h3 className="text-xl font-display font-bold text-chocolate">
                 Franchise & Partnership Enquiry
               </h3>
-              <p className="text-xs text-chocolate-muted">
+              <p className="text-xs text-[#2308ca] font-semibold">
                 Super Deluxe Softies & Smiles Brand Expansion
               </p>
             </div>
@@ -108,7 +108,7 @@ export const FranchiseModal: React.FC<FranchiseModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white hover:bg-strawberry hover:text-white text-chocolate flex items-center justify-center transition-colors shadow-xs border border-cream-border"
+            className="w-9 h-9 rounded-full bg-white hover:bg-[#cf0924] hover:text-white text-chocolate flex items-center justify-center transition-colors shadow-xs border border-cream-border"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -270,8 +270,8 @@ export const FranchiseModal: React.FC<FranchiseModalProps> = ({
                       onClick={() => setFormData({ ...formData, investmentRange: range })}
                       className={`py-2 px-3 rounded-xl text-xs font-bold border transition-colors ${
                         formData.investmentRange === range
-                          ? 'bg-chocolate text-white border-chocolate'
-                          : 'bg-white text-chocolate border-cream-border hover:bg-cream-100'
+                          ? 'bg-[#2308ca] text-white border-[#2308ca] shadow-xs'
+                          : 'bg-white text-chocolate border-cream-border hover:bg-cream-100 hover:border-[#2308ca]/50'
                       }`}
                     >
                       {range}

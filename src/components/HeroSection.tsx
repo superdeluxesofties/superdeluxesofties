@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, MapPin, Sparkles, Heart } from 'lucide-react';
-import { STORE_INFO } from '../data/superDeluxeData';
+import { ArrowRight, Sparkles, Heart } from 'lucide-react';
 import { DailyFlavour } from '../types';
 
 interface HeroSectionProps {
@@ -17,85 +16,85 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   language,
 }) => {
   return (
-    <section id="hero" className="relative overflow-hidden pt-6 pb-14 md:pt-10 md:pb-20 bg-gradient-to-b from-[#FFF9F2] via-[#FFF4E6] to-[#FFF9F2]">
-      {/* Decorative background swirls and sparkles */}
-      <div className="absolute top-10 left-4 text-strawberry/15 pointer-events-none select-none text-4xl animate-pulse-subtle">
-        ✨
-      </div>
-      <div className="absolute bottom-16 right-8 text-mango/20 pointer-events-none select-none text-5xl">
-        🍨
-      </div>
-      <div className="absolute top-1/2 left-[-60px] w-48 h-48 rounded-full bg-strawberry-pink/20 blur-3xl pointer-events-none"></div>
-      <div className="absolute top-1/4 right-[-40px] w-64 h-64 rounded-full bg-mango-light/40 blur-3xl pointer-events-none"></div>
-
+    <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
       <div className="content-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
           {/* ========================================================
               LEFT COLUMN: HERO COPY & CALLS TO ACTION
               ======================================================== */}
           <div className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-strawberry-light/80 border border-strawberry/20 text-strawberry text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{language === 'ta' ? '100% தூய பால் ஐஸ்கிரீம்' : '100% Pure Milk • Churned Fresh Daily'}</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-bold uppercase tracking-wider mb-3 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFCC33]" />
+              <span>{language === 'ta' ? 'உண்மையான பால் • பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with Real Milk • Zero Added Oils'}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-chocolate leading-[1.08] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-display font-bold text-white leading-[1.14] tracking-tight drop-shadow-sm">
               {language === 'ta' ? (
                 <>
-                  மகிழ்ச்சியின்<br />
-                  <span className="text-strawberry">ஒரு சிறிய</span><br />
-                  ஸ்கூப்.
+                  சாஃப்டீஸை விட மேலானது.<br />
+                  <span className="text-[#FFCC33]">நாங்கள் புன்னகையை வழங்குகிறோம்.</span>
                 </>
               ) : (
                 <>
-                  A Little<br />
-                  <span className="text-strawberry">Scoop of</span><br />
-                  Happiness.
+                  More Than Softies.<br />
+                  <span className="text-[#FFCC33]">We Serve Smiles.</span>
                 </>
               )}
             </h1>
 
-            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-chocolate-muted max-w-md font-medium leading-relaxed">
-              {language === 'ta'
-                ? 'க்ரீமி சாஃப்டீஸ். மகிழ்ச்சியான புன்னகைகள். இனிய நாட்களுக்கும் நினைவுகளுக்கும் உருவாக்கப்பட்டது.'
-                : 'Creamy softies. Happy smiles. Made for good days and sweeter memories.'}
-            </p>
+            <div className="mt-3 max-w-md space-y-1.5">
+              <p className="text-sm sm:text-base font-bold text-[#FFCC33]">
+                {language === 'ta'
+                  ? 'புதிய ஐஸ்கிரீம். உண்மையான பால். அற்புதமான சுவைகள். குறைந்த விலை.'
+                  : 'Fresh ice cream. Real milk. Exciting flavours. Pocket-friendly prices.'}
+              </p>
+              <p className="text-xs sm:text-sm text-white/95 font-medium leading-relaxed">
+                {language === 'ta'
+                  ? 'ஒவ்வொரு சுழற்சியும் ஒரு சாதாரண ஏக்கத்தை நினைவில் கொள்ளத்தக்க சிறிய தருணமாக மாற்ற வடிவமைக்கப்பட்டுள்ளது.'
+                  : 'Every swirl is crafted to turn an ordinary craving into a little moment worth remembering.'}
+              </p>
+            </div>
 
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full sm:w-auto">
+            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={onExploreMenu}
-                className="btn-primary text-base py-3 px-6 sm:px-7 shadow-glow-red group"
+                className="btn-primary text-sm py-2.5 px-6 shadow-xl hover:scale-105 border-2 border-white/20 group"
                 id="hero-explore-menu-btn"
               >
-                <span>{language === 'ta' ? 'மெனுவை பார்க்க' : 'Explore Menu'}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <span>{language === 'ta' ? 'மெனுவை பார்க்க →' : 'Explore the Menu →'}</span>
               </button>
 
-              <a
-                href="#contact"
-                className="btn-secondary text-base py-3 px-6"
-                id="hero-find-us-btn"
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('todays-flavour') || document.getElementById('flavours-cycle');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-[#FFCC33] hover:bg-[#e6b82e] text-[#1E0D08] font-extrabold text-sm py-2.5 px-5 rounded-full shadow-lg hover:scale-105 transition-all"
+                id="hero-todays-flavour-btn"
               >
-                <MapPin className="w-4 h-4 text-strawberry" />
-                <span>{language === 'ta' ? 'இருப்பிடம்' : 'Find Us'}</span>
-              </a>
+                <span>{language === 'ta' ? 'இன்றைய சுவை' : "Today's Flavour"}</span>
+              </button>
             </div>
 
             {/* Quick Micro Badges */}
-            <div className="mt-8 flex items-center justify-center lg:justify-start gap-4 text-xs font-bold text-chocolate/80">
-              <div className="flex items-center gap-1.5 bg-white/80 py-1.5 px-3 rounded-full border border-cream-border shadow-2xs">
+            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] font-bold">
+              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-[#0162C1] shadow-sm">
                 <span>🥛</span>
-                <span>Real Cow Milk</span>
+                <span>Made with Real Milk</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/80 py-1.5 px-3 rounded-full border border-cream-border shadow-2xs">
+              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-emerald-800 shadow-sm">
                 <span>🌿</span>
+                <span>Zero Added Oils</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-strawberry shadow-sm">
+                <span>❤️</span>
                 <span>100% Pure Veg</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/80 py-1.5 px-3 rounded-full border border-cream-border shadow-2xs">
-                <span>⭐</span>
-                <span>From ₹39</span>
+              <div className="flex items-center gap-1.5 bg-[#FFCC33] py-1 px-2.5 rounded-full border border-white text-[#1E0D08] shadow-sm font-black">
+                <span>From ₹25</span>
               </div>
             </div>
           </div>
@@ -104,25 +103,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               CENTER COLUMN: MR. DELUXE MASCOT
               ======================================================== */}
           <div className="lg:col-span-3 flex justify-center order-first lg:order-none my-2 lg:my-0">
-            <div className="relative group cursor-pointer max-w-[240px] sm:max-w-[270px] w-full">
-              {/* Ambient Warm Pedestal Glow */}
-              <div className="absolute inset-0 bg-gradient-to-t from-mango/40 via-amber-200/30 to-transparent rounded-[2.8rem] filter blur-xl scale-95 transition-transform group-hover:scale-105 pointer-events-none"></div>
+            <div className="relative group cursor-pointer max-w-[260px] sm:max-w-[290px] w-full flex flex-col items-center">
+              {/* Radiant Warm Golden Glow */}
+              <div className="absolute inset-0 bg-[#FFCC33]/35 rounded-full filter blur-2xl scale-95 transition-transform group-hover:scale-110 pointer-events-none"></div>
 
-              {/* Framed Mascot Showcase Card */}
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-sky-400 to-blue-600 shadow-floating border-4 border-amber-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl">
+              {/* Character Cutout Container */}
+              <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]">
                 <img
-                  src="/images/mascot/mr_deluxe_superhero.png"
+                  src="/images/mascot/mr_deluxe_superhero_tricolor.png"
                   alt="Mr. Deluxe Superhero Mascot"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto max-h-[350px] object-contain"
                   loading="eager"
                 />
+              </div>
 
-                {/* Overlaid Mascot Badge */}
-                <div className="absolute bottom-3 inset-x-3 bg-white/95 backdrop-blur-md rounded-2xl py-1.5 px-3 shadow-md flex items-center justify-center gap-1.5 border border-cream-border">
-                  <Heart className="w-3.5 h-3.5 text-strawberry fill-strawberry" />
-                  <span className="text-xs font-display font-bold text-chocolate">Mr. Deluxe</span>
-                  <span className="text-[10px] text-strawberry font-bold">• Super Hero</span>
-                </div>
+              {/* Overlaid Mascot Badge */}
+              <div className="mt-2 bg-white/95 backdrop-blur-md rounded-2xl py-1.5 px-4 shadow-xl flex items-center justify-center gap-1.5 border-2 border-[#FFCC33] relative z-20">
+                <Heart className="w-3.5 h-3.5 text-[#cf0924] fill-[#cf0924]" />
+                <span className="text-xs font-display font-bold text-[#0162C1]">Mr. Deluxe</span>
+                <span className="text-[10px] text-[#cf0924] font-extrabold">• Super Hero</span>
               </div>
             </div>
           </div>
@@ -131,74 +130,166 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               RIGHT COLUMN: TODAY'S FLAVOUR HERO CARD
               ======================================================== */}
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm bg-gradient-to-br from-[#FFF4E6] to-[#FFFDF9] rounded-3xl p-6 sm:p-7 border border-[#EED9C4] shadow-medium relative group hover:shadow-floating transition-all duration-300">
-              {/* Top Row: Badge & Date */}
-              <div className="flex items-center justify-between mb-3">
-                <span className="badge-pill bg-strawberry text-white text-[11px] font-bold shadow-xs">
-                  {language === 'ta' ? 'இன்றைய சிறப்பு சுவை' : "TODAY'S FLAVOUR"}
-                </span>
-                <span className="text-[11px] font-bold text-chocolate-muted bg-white/90 px-2.5 py-0.5 rounded-full border border-cream-border">
-                  Day {todayFlavour.day} of 10
-                </span>
-              </div>
-
-              {/* Flavor Title & Script Subtitle */}
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-chocolate leading-tight">
-                {language === 'ta' && todayFlavour.tamilName ? todayFlavour.tamilName : todayFlavour.name}
-              </h2>
-
-              <p className="font-script text-xl sm:text-2xl text-chocolate-light font-bold mt-0.5">
-                {todayFlavour.tagline || 'Rich. Smooth. Irresistibly Deluxe.'}
-              </p>
-
-              <div className="mt-3">
-                <button
-                  type="button"
-                  onClick={() => onSelectFlavour(todayFlavour)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-chocolate hover:text-strawberry border-b-2 border-chocolate hover:border-strawberry pb-0.5 transition-colors"
+            {(() => {
+              const isLightBg = todayFlavour.accentColor && todayFlavour.accentColor.toUpperCase() !== '#FFFFFF';
+              const cardBg = todayFlavour.accentBg || '#512D25';
+              return (
+                <div
+                  className="w-full max-w-sm rounded-3xl p-6 sm:p-7 border-2 border-[#FFCC33]/70 shadow-2xl relative group hover:scale-[1.02] transition-all duration-300"
+                  style={{
+                    backgroundColor: cardBg,
+                    backgroundImage: isLightBg
+                      ? 'linear-gradient(155deg, rgba(255,255,255,0.45) 0%, rgba(0,0,0,0.06) 100%)'
+                      : 'linear-gradient(155deg, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.40) 100%)',
+                    color: todayFlavour.accentColor || '#FFFFFF',
+                  }}
                 >
-                  <span>{language === 'ta' ? 'இன்றே சுவைக்க' : 'Try Today'}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+                  {/* Top Row: Badge & Date */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="badge-pill bg-[#cf0924] text-white text-[11px] font-bold shadow-glow-red">
+                      {language === 'ta' ? 'இன்றைய சிறப்பு சுவை' : "TODAY'S FLAVOUR"}
+                    </span>
+                    <span
+                      className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${
+                        isLightBg
+                          ? 'text-chocolate bg-white/60 border-chocolate/20'
+                          : 'text-white bg-white/15 border-white/25'
+                      }`}
+                    >
+                      Day {todayFlavour.day} of 10
+                    </span>
+                  </div>
 
-              {/* Product Visual Container with rich chocolate softie cup */}
-              <div className="relative mt-4 aspect-square max-h-[220px] mx-auto flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-t from-chocolate-dark/5 to-transparent">
-                <img
-                  src={todayFlavour.cardImage || '/images/flavours/chocolate_x_vanilla_WEB.jpg'}
-                  alt={todayFlavour.name}
-                  className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                />
+                  {/* Flavor Title & Script Subtitle */}
+                  <h2
+                    className="text-2xl sm:text-3xl font-display font-bold leading-tight"
+                    style={{ color: todayFlavour.accentColor || '#FFFFFF' }}
+                  >
+                    {language === 'ta' && todayFlavour.tamilName ? todayFlavour.tamilName : todayFlavour.name}
+                  </h2>
 
-                {/* Floating Price Pill */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-chocolate font-display font-bold text-xs py-1 px-3 rounded-full shadow-md border border-cream-border">
-                  From ₹49
+                  <p
+                    className="font-playfair text-lg sm:text-xl font-semibold mt-1 leading-snug"
+                    style={{ color: isLightBg ? '#2308ca' : todayFlavour.badgeColor || '#FFCC33' }}
+                  >
+                    {todayFlavour.tagline || 'Slow-churned royal almonds with cardamom whispers.'}
+                  </p>
+
+                  <div className="mt-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const el = document.getElementById('flavours-cycle');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className={`inline-flex items-center gap-1.5 text-xs font-bold border-b-2 pb-0.5 transition-colors ${
+                        isLightBg
+                          ? 'text-[#cf0924] hover:text-[#2308ca] border-[#cf0924] hover:border-[#2308ca]'
+                          : 'text-[#FFCC33] hover:text-white border-[#FFCC33] hover:border-white'
+                      }`}
+                    >
+                      <span>{language === 'ta' ? "இன்றைய சிறப்பு சுவை →" : "Try Today's Flavour →"}</span>
+                    </button>
+                  </div>
+
+                  {/* Product Visual Container with softie cone cutout */}
+                  <div className="relative mt-4 aspect-square max-h-[220px] mx-auto flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-t from-slate-100 to-white border-2 border-white/80 p-2 shadow-md">
+                    <img
+                      src={todayFlavour.cardImage || '/images/10-day-10-flavour/Chocolate.png'}
+                      alt={todayFlavour.name}
+                      className="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Floating Price Pill in vibrant Yellow #FFCC33 */}
+                    <div className="absolute bottom-3 right-3 bg-[#FFCC33] text-[#1E0D08] font-display font-extrabold text-xs py-1 px-3 rounded-full shadow-md border-2 border-white">
+                      From ₹25
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Carousel Pagination Dots */}
-              <div className="mt-5 flex items-center justify-center gap-2">
-                {[1, 2, 3, 4, 5].map((d) => (
-                  <button
-                    key={d}
-                    type="button"
-                    onClick={() => {
-                      const target = (todayFlavour.day === d) ? todayFlavour : undefined;
-                      if (target) onSelectFlavour(target);
-                    }}
-                    className={`h-2 rounded-full transition-all duration-200 ${
-                      todayFlavour.day === d
-                        ? 'w-6 bg-strawberry'
-                        : 'w-2 bg-[#EED9C4] hover:bg-chocolate/40'
-                    }`}
-                    aria-label={`Go to day ${d}`}
-                  />
-                ))}
-              </div>
-            </div>
+              );
+            })()}
           </div>
 
         </div>
+
+        {/* ========================================================
+            COMPACT OUR PROMISE BAR (Within Home Hero) — commented out for now
+            ======================================================== */}
+        {/*
+        <div className="mt-8 pt-6 border-t border-white/25">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/25 shadow-lg text-white">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 mb-3.5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest bg-[#FFCC33] text-[#1E0D08] px-2.5 py-0.5 rounded-full">
+                  OUR PROMISE
+                </span>
+                <h2 className="text-sm sm:text-base font-display font-black text-white">
+                  MADE WITH 100% REAL MILK
+                </h2>
+              </div>
+              <p className="text-[11px] sm:text-xs text-white/90 font-medium">
+                Real ingredients. Fresh preparation. Exciting flavours. Affordable indulgence.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-3.5">
+              <div className="bg-white/15 rounded-xl p-2.5 border border-white/20">
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#FFCC33]">
+                  <span>01</span>
+                  <span>🥛</span>
+                </div>
+                <div className="text-xs font-display font-bold text-white mt-0.5">100% REAL MILK</div>
+                <p className="text-[10px] text-white/90 leading-snug">Made with real milk. ZERO ADDED OILS.</p>
+              </div>
+
+              <div className="bg-white/15 rounded-xl p-2.5 border border-white/20">
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#FFCC33]">
+                  <span>02</span>
+                  <span>🍦</span>
+                </div>
+                <div className="text-xs font-display font-bold text-white mt-0.5">FRESH EVERY DAY</div>
+                <p className="text-[10px] text-white/90 leading-snug">Prepared fresh at your outlet.</p>
+              </div>
+
+              <div className="bg-white/15 rounded-xl p-2.5 border border-white/20">
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#FFCC33]">
+                  <span>03</span>
+                  <span>✨</span>
+                </div>
+                <div className="text-xs font-display font-bold text-white mt-0.5">EXCITING FLAVOURS</div>
+                <p className="text-[10px] text-white/90 leading-snug">Always something new to try.</p>
+              </div>
+
+              <div className="bg-white/15 rounded-xl p-2.5 border border-white/20">
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#FFCC33]">
+                  <span>04</span>
+                  <span>₹</span>
+                </div>
+                <div className="text-xs font-display font-bold text-white mt-0.5">POCKET-FRIENDLY</div>
+                <p className="text-[10px] text-white/90 leading-snug">A premium experience without premium price.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-2.5 border-t border-white/20">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="bg-white/95 text-chocolate px-2.5 py-0.5 rounded-full font-bold text-[10px]">❤️ REAL INGREDIENTS</span>
+                <span className="bg-[#FFCC33] text-[#1E0D08] px-2.5 py-0.5 rounded-full font-black text-[10px]">🥛 REAL MILK &amp; ZERO ADDED OILS</span>
+                <span className="bg-white/95 text-chocolate px-2.5 py-0.5 rounded-full font-bold text-[10px]">🍦 FRESHLY PREPARED</span>
+                <span className="bg-white/95 text-chocolate px-2.5 py-0.5 rounded-full font-bold text-[10px]">✨ EXCITING FLAVOURS</span>
+                <span className="bg-white/95 text-chocolate px-2.5 py-0.5 rounded-full font-bold text-[10px]">₹ POCKET-FRIENDLY</span>
+              </div>
+              <div className="text-left sm:text-right shrink-0">
+                <span className="text-[9px] font-extrabold uppercase tracking-widest text-[#FFCC33] block">
+                  THAT&apos;S SUPER DELUXE SOFTIES.
+                </span>
+                <span className="text-xs font-display font-black text-white">
+                  More Than Softies. We Serve Smiles.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        */}
       </div>
     </section>
   );

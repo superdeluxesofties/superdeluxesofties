@@ -22,10 +22,11 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#3B1E17] to-[#24110C] text-[#FFF4E6] pt-16 pb-8 border-t-4 border-amber-800/40 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#1C0D08] via-[#2A140D] to-[#120603] text-[#FFF4E6] pt-16 pb-8 border-t-4 border-[#FFCC33] relative overflow-hidden">
       
-      {/* Decorative background ambient glow */}
-      <div className="absolute top-0 right-1/4 w-80 h-80 bg-strawberry/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Decorative background ambient glows */}
+      <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#2308ca]/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-10 w-72 h-72 bg-[#FFCC33]/15 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="content-container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -33,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: Brand & Slogan (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-start">
             <a href="#hero" className="inline-block group mb-4">
-              <div className="bg-white/95 hover:bg-white p-2.5 rounded-2xl shadow-md border border-white/20 inline-flex transition-transform group-hover:scale-105">
+              <div className="bg-white/95 hover:bg-white p-2.5 rounded-2xl shadow-md border-2 border-[#FFCC33]/60 inline-flex transition-transform group-hover:scale-105">
                 <img
                   src="/images/brand/logo.png"
                   alt="Super Deluxe Softies & Smiles"
@@ -48,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({
                 : 'Softies that make you smile. Memories that stay forever.'}
             </p>
 
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs text-amber-200">
+            <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#FFCC33]/40 text-xs text-[#FFCC33] font-bold">
               <span>🥛 100% Pure Milk</span>
               <span>•</span>
               <span>🌿 Pure Vegetarian</span>
@@ -60,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({
                 href={STORE_INFO.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-strawberry text-white flex items-center justify-center transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#cf0924] text-white flex items-center justify-center transition-all duration-200 shadow-xs"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -69,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({
                 href={STORE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-200 shadow-xs"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -78,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({
                 href={STORE_INFO.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 text-white flex items-center justify-center transition-all duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#2308ca] text-white flex items-center justify-center transition-all duration-200 shadow-xs"
                 aria-label="Google Maps"
               >
                 <MapPin className="w-5 h-5" />
@@ -88,64 +89,64 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-display font-bold text-amber-300 uppercase tracking-wider mb-4">
-              Quick Links
+            <h4 className="text-sm font-display font-black text-[#FFCC33] uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <span>★</span> Quick Links
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-cream-200">
               <li>
-                <a href="#menu" className="hover:text-strawberry transition-colors">Menu</a>
+                <a href="#menu" className="hover:text-[#FFCC33] transition-colors">Menu</a>
               </li>
               <li>
-                <a href="#todays-flavour" className="hover:text-strawberry transition-colors">Today's Flavour</a>
+                <a href="#todays-flavour" className="hover:text-[#FFCC33] transition-colors">Today's Flavour</a>
               </li>
               <li>
-                <a href="#combos" className="hover:text-strawberry transition-colors">Combos</a>
+                <a href="#combos" className="hover:text-[#FFCC33] transition-colors">Combos</a>
               </li>
               <li>
-                <a href="#flavours-cycle" className="hover:text-strawberry transition-colors">10 Days 10 Flavours</a>
+                <a href="#flavours-cycle" className="hover:text-[#FFCC33] transition-colors">10 Days 10 Flavours</a>
               </li>
             </ul>
           </div>
 
           {/* Col 3: About Us (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-display font-bold text-amber-300 uppercase tracking-wider mb-4">
-              About Us
+            <h4 className="text-sm font-display font-black text-[#FFCC33] uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <span>★</span> About Us
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold text-cream-200">
               <li>
-                <a href="#story" className="hover:text-strawberry transition-colors">Our Story</a>
+                <a href="#story" className="hover:text-[#FFCC33] transition-colors">Our Story</a>
               </li>
               <li>
-                <a href="#mr-deluxe" className="hover:text-strawberry transition-colors">Mr. Deluxe</a>
+                <a href="#mr-deluxe" className="hover:text-[#FFCC33] transition-colors">Mr. Deluxe</a>
               </li>
               <li>
                 <button
                   type="button"
                   onClick={onOpenEnquiry}
-                  className="hover:text-strawberry transition-colors text-left"
+                  className="hover:text-[#FFCC33] transition-colors text-left font-bold text-[#FFCC33]"
                 >
-                  Franchise Enquiry
+                  Franchise Enquiry →
                 </button>
               </li>
               <li>
-                <a href="#reviews" className="hover:text-strawberry transition-colors">Guest Reviews</a>
+                <a href="#reviews" className="hover:text-[#FFCC33] transition-colors">Guest Reviews</a>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Corner Mascot Illustration (3 cols) */}
           <div className="lg:col-span-3 flex flex-col items-center sm:items-end justify-center relative">
-            <div className="bg-white/5 rounded-3xl p-4 border border-white/10 flex flex-col items-center text-center">
+            <div className="bg-white/10 rounded-3xl p-4 border-2 border-[#FFCC33]/40 flex flex-col items-center text-center shadow-lg">
               <img
                 src="/images/expressions/happy_card.jpg"
                 alt="Mr. Deluxe Waving"
-                className="w-24 h-24 object-cover rounded-2xl border-2 border-amber-300 shadow-lg"
+                className="w-28 h-28 bg-white p-1.5 object-contain rounded-2xl border-2 border-[#FFCC33] shadow-lg"
               />
-              <span className="text-xs font-display font-bold text-amber-300 mt-2">
+              <span className="text-xs font-display font-extrabold text-[#FFCC33] mt-2">
                 "See you at the parlour!"
               </span>
-              <p className="text-[11px] text-cream-300/80 mt-0.5">
+              <p className="text-[11px] text-cream-200/90 mt-0.5">
                 Guduvanchery, Chennai
               </p>
             </div>
@@ -163,7 +164,7 @@ export const Footer: React.FC<FooterProps> = ({
             <button
               type="button"
               onClick={onOpenPrivacy}
-              className="hover:text-white transition-colors underline-offset-4 hover:underline"
+              className="hover:text-[#FFCC33] transition-colors underline-offset-4 hover:underline"
             >
               Privacy Policy
             </button>
@@ -171,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({
             <button
               type="button"
               onClick={onOpenTerms}
-              className="hover:text-white transition-colors underline-offset-4 hover:underline"
+              className="hover:text-[#FFCC33] transition-colors underline-offset-4 hover:underline"
             >
               Terms & Conditions
             </button>
@@ -179,7 +180,7 @@ export const Footer: React.FC<FooterProps> = ({
             <button
               type="button"
               onClick={scrollToTop}
-              className="p-2 rounded-full bg-white/10 hover:bg-strawberry text-white transition-colors"
+              className="p-2.5 rounded-full bg-[#cf0924] hover:bg-[#b0071e] text-white transition-colors shadow-glow-red"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
