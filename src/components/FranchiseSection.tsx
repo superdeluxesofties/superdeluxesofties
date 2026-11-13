@@ -31,14 +31,36 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
   ];
 
   return (
-    <section id="partner" className="py-16 md:py-24 bg-[#E8F4FD] relative">
-      <div className="content-container">
+    <section id="partner" className="py-16 md:py-24 bg-[#E8F4FD] relative overflow-hidden">
+      {/* Decorative Splash Side Watermark */}
+      <div className="absolute -top-16 -left-16 w-64 sm:w-80 lg:w-96 h-96 pointer-events-none opacity-10 select-none overflow-hidden mix-blend-multiply">
+        <img
+          src="/images/decorations/splash_swirl.jpg"
+          alt=""
+          className="w-full h-full object-cover filter contrast-125"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#E8F4FD]"></div>
+      </div>
+
+      <div className="content-container relative z-10">
         
         {/* Main Franchise Container Card with vibrant ambient border */}
         <div className="bg-gradient-to-br from-white via-blue-50/20 to-white rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border-2 border-[#FFCC33]/90 shadow-medium relative overflow-hidden">
           {/* Ambient colorful glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#2308ca]/10 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FFCC33]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Decorative Ingredient Splash Corner Accent */}
+          <div className="absolute -bottom-12 -right-12 w-64 sm:w-80 h-80 pointer-events-none opacity-10 select-none overflow-hidden mix-blend-multiply">
+            <img
+              src="/images/decorations/splash_swirl.jpg"
+              alt=""
+              className="w-full h-full object-cover object-bottom filter contrast-125"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-white"></div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
             

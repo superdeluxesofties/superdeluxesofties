@@ -76,8 +76,30 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
   ];
 
   return (
-    <section id="story" className="py-10 md:py-16 bg-[#E8F4FD] border-y border-sky-200/80 relative">
-      <div className="content-container space-y-12 md:space-y-14">
+    <section id="story" className="py-10 md:py-16 bg-[#E8F4FD] border-y border-sky-200/80 relative overflow-hidden">
+      {/* Decorative Ingredient Splash Background Watermark on Right */}
+      <div className="absolute top-0 right-0 w-72 sm:w-96 lg:w-[480px] h-full pointer-events-none opacity-10 select-none overflow-hidden mix-blend-multiply">
+        <img
+          src="/images/decorations/splash_swirl.jpg"
+          alt=""
+          className="w-full h-full object-cover object-top filter contrast-125"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#E8F4FD]/40 to-[#E8F4FD]"></div>
+      </div>
+
+      {/* Decorative Ingredient Splash Background Accent on Bottom-Left */}
+      <div className="absolute -bottom-24 -left-20 w-64 sm:w-80 h-96 pointer-events-none opacity-10 select-none overflow-hidden rotate-180 mix-blend-multiply">
+        <img
+          src="/images/decorations/splash_swirl.jpg"
+          alt=""
+          className="w-full h-full object-cover filter contrast-125"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent to-[#E8F4FD]"></div>
+      </div>
+
+      <div className="content-container space-y-12 md:space-y-14 relative z-10">
         
         {/* ========================================================
             PART 1: ABOUT THE BRAND (Narrative & Storefront)

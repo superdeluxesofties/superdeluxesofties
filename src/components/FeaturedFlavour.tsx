@@ -18,8 +18,19 @@ export const FeaturedFlavour: React.FC<FeaturedFlavourProps> = ({
   const cardBg = flavour.accentBg || '#512D25';
 
   return (
-    <section id="todays-flavour" className="py-16 md:py-24 bg-[#E8F4FD] relative">
-      <div className="content-container">
+    <section id="todays-flavour" className="py-16 md:py-24 bg-[#E8F4FD] relative overflow-hidden">
+      {/* Decorative Ingredient Splash Ambient Watermark on Section Edge */}
+      <div className="absolute top-0 right-0 w-64 sm:w-80 lg:w-96 h-full pointer-events-none opacity-10 select-none overflow-hidden mix-blend-multiply">
+        <img
+          src="/images/decorations/splash_swirl.jpg"
+          alt=""
+          className="w-full h-full object-cover object-top filter contrast-125"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#E8F4FD]/50 to-[#E8F4FD]"></div>
+      </div>
+
+      <div className="content-container relative z-10">
         
         {/* Main Flavour-Themed Feature Card Container */}
         <div
@@ -39,6 +50,17 @@ export const FeaturedFlavour: React.FC<FeaturedFlavourProps> = ({
           ></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/20 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-[#FFCC33]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+          {/* Decorative Ingredient Splash Stream inside Card */}
+          <div className="absolute -top-10 -right-10 w-[240px] sm:w-[320px] lg:w-[420px] h-[130%] pointer-events-none opacity-15 sm:opacity-20 overflow-hidden mix-blend-overlay">
+            <img
+              src="/images/decorations/splash_swirl.jpg"
+              alt=""
+              className="w-full h-full object-cover object-center filter contrast-125"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/30"></div>
+          </div>
 
           <div className="relative z-10 p-8 sm:p-12 lg:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">

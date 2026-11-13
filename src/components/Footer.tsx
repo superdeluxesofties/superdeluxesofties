@@ -28,6 +28,17 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#2308ca]/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-10 w-72 h-72 bg-[#FFCC33]/15 rounded-full blur-3xl pointer-events-none"></div>
 
+      {/* Decorative Ingredient Splash Watermark in Footer */}
+      <div className="absolute top-0 right-0 w-80 sm:w-[420px] h-full pointer-events-none opacity-10 select-none overflow-hidden mix-blend-screen">
+        <img
+          src="/images/decorations/splash_swirl.jpg"
+          alt=""
+          className="w-full h-full object-cover object-top filter contrast-125 brightness-90"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#1C0D08]/50 to-[#1C0D08]"></div>
+      </div>
+
       <div className="content-container relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
