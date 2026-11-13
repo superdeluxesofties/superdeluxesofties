@@ -73,7 +73,7 @@ export const MascotShowcase: React.FC<MascotShowcaseProps> = ({ language }) => {
           <p className="text-chocolate-muted text-sm sm:text-base font-medium">
             {language === 'ta'
               ? 'பல உணர்வுகள், ஒரே தூய இதயம்! ஒவ்வொரு நாளும் உங்கள் முகத்தில் புன்னகையை கொண்டு வர இங்கே இருக்கிறார்.'
-              : 'Many expressions, one pure heart! Churning happiness, pure milk, and cheerful smiles everyday.'}
+              : 'Many Expressions. One Pure Heart. Bringing happiness, creamy softies, and cheerful smiles every day.'}
           </p>
         </div>
 

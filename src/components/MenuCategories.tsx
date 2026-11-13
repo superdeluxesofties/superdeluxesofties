@@ -17,7 +17,7 @@ interface QuickFavourite {
 
 const QUICK_FAVOURITES: QuickFavourite[] = [
   { name: 'Single Flavour Cone', price: '₹25', category: 'cones' },
-  { name: 'Double Flavoured Cone', price: '₹30', category: 'cones' },
+  { name: 'Double-Flavour Cone', price: '₹30', category: 'cones' },
   { name: 'Dip Cone', price: '₹40', category: 'dip-cones' },
   { name: '125 ml Dip Cup', price: '₹50', category: 'dip-cups' },
   { name: '250 ml Dip Cup', price: '₹80', category: 'dip-cups' },

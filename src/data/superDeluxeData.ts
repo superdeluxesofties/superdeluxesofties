@@ -129,7 +129,7 @@ export const MENU_SECTIONS: MenuSection[] = [
   ]},
   { id: 'cones', title: 'Cones', subtitle: 'Pick a flavour or make it a double', startingAt: '₹25', image: '/images/menu-items/cone-single-vanilla-cutout.png', lines: [
     ...menuFlavours.map((flavour) => ({ name: `${flavour.name} · Single Flavour Cone`, price: '₹25', image: `/images/menu-items/cone-single-${flavour.slug}-cutout.png` })),
-    ...menuFlavours.slice(1).map((flavour) => ({ name: `Vanilla + ${flavour.name} · Double Flavour Cone`, price: '₹30', image: `/images/menu-items/cone-double-${flavour.slug}-cutout.png` })),
+    ...menuFlavours.slice(1).map((flavour) => ({ name: `Vanilla + ${flavour.name} · Double-Flavour Cone`, price: '₹30', image: `/images/menu-items/cone-double-${flavour.slug}-cutout.png` })),
   ]},
   { id: 'dip-cones', title: 'Dip Cones', subtitle: 'Crisp waffle cone with crackling dip shell · All flavours ₹40', startingAt: '₹40', image: '/images/dip-cones/Dark Chocolate Dip.png', lines: [
     { name: 'Dark Chocolate Dip Cone', price: '₹40', note: 'Crunchy crackle chocolate dip', image: '/images/dip-cones/Dark Chocolate Dip.png' },
@@ -544,7 +544,7 @@ export const DAILY_FLAVOURS: DailyFlavour[] = [
     name: 'Pineapple',
     tamilName: 'அன்னாசி பழம்',
     tagline: 'Tangy-sweet tropical sunshine churned to creamy perfection.',
-    description: 'Sun-ripened Queen Pineapple swirl churned with pure rich milk for an uplifting tropical indulgence.',
+    description: 'A sun-ripened Queen Pineapple swirl, churned with rich, creamy milk for an uplifting tropical indulgence.',
     cardImage: '/images/10-day-10-flavour/Pineapple.png',
     cupImage: '/images/10-day-10-flavour/Pineapple.png',
     accentBg: '#F5A623',

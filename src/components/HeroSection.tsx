@@ -107,10 +107,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Radiant Warm Golden Glow */}
               <div className="absolute inset-0 bg-[#FFCC33]/35 rounded-full filter blur-2xl scale-95 transition-transform group-hover:scale-110 pointer-events-none"></div>
 
-              {/* Floating Element 1 (Top Right): Fresh Churn Daily */}
+              {/* Floating Element 1 (Top Right): Freshly Churned Daily */}
               <div className="absolute -top-3 -right-4 sm:-right-8 z-30 bg-white text-chocolate rounded-2xl px-3 sm:px-3.5 py-1.5 sm:py-2 shadow-floating border border-slate-100 flex items-center gap-1.5 sm:gap-2 font-bold text-xs pointer-events-none animate-bob">
                 <span className="text-lg sm:text-xl">🍦</span>
-                <span className="font-display font-extrabold text-[#2308ca] whitespace-nowrap">Fresh Churn Daily</span>
+                <span className="font-display font-extrabold text-[#2308ca] whitespace-nowrap">Freshly Churned Daily</span>
               </div>
 
               {/* Floating Element 2 (Middle Left): 4.9 Google Rating */}
