@@ -128,7 +128,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Character Cutout Container */}
               <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]">
                 <img
-                  src="/images/mascot/mr-deluxe.png"
+                  src="/images/mascot/hero.png"
                   alt="Mr. Deluxe — Super Deluxe Softies superhero mascot"
                   className="w-full h-auto max-h-[360px] object-contain"
                   loading="eager"

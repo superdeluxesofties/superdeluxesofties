@@ -137,13 +137,13 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Col 4: Corner Mascot Illustration (3 cols) */}
           <div className="lg:col-span-3 flex flex-col items-center sm:items-end justify-center relative">
-            <div className="bg-white/10 rounded-3xl p-4 border-2 border-[#FFCC33]/40 flex flex-col items-center text-center shadow-lg">
+            <div className="bg-white/10 rounded-3xl px-3 py-3.5 border-2 border-[#FFCC33]/40 flex flex-col items-center text-center shadow-lg max-w-[210px] w-full">
               <img
-                src="/images/expressions/happy_card.jpg"
-                alt="Mr. Deluxe Waving"
-                className="w-28 h-28 bg-white p-1.5 object-contain rounded-2xl border-2 border-[#FFCC33] shadow-lg"
+                src="/images/mascot/hero.png"
+                alt="Mr. Deluxe Superhero Mascot"
+                className="h-32 sm:h-36 w-auto object-contain filter drop-shadow-[0_10px_16px_rgba(0,0,0,0.45)] transition-transform duration-300 hover:scale-105"
               />
-              <span className="text-xs font-display font-extrabold text-[#FFCC33] mt-2">
+              <span className="text-xs font-display font-extrabold text-[#FFCC33] mt-1.5">
                 "See you at the parlour!"
               </span>
               <p className="text-[11px] text-cream-200/90 mt-0.5">

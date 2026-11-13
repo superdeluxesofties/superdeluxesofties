@@ -23,12 +23,12 @@ export const MascotShowcase: React.FC<MascotShowcaseProps> = ({ language }) => {
             : 'bg-white border-2 border-slate-200 shadow-soft hover:shadow-medium hover:-translate-y-1 hover:border-[#2308ca]/60'
         }`}
       >
-        {/* Full-bleed edge-to-edge image: ZERO left & right padding */}
-        <div className="w-full h-[145px] sm:h-[165px] overflow-hidden bg-gradient-to-b from-blue-50/40 to-slate-50 flex items-center justify-center p-0 relative">
+        {/* Mascot Expression Image - fully zoomed out and uncropped */}
+        <div className="w-full h-[155px] sm:h-[180px] overflow-hidden bg-gradient-to-b from-[#edf5fc] via-[#e5f0fa] to-[#d8ebf9] flex items-center justify-center p-1 relative">
           <img
             src={expr.image}
             alt={`Mr. Deluxe ${expr.label}`}
-            className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
+            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
         </div>

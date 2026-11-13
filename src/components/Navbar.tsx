@@ -115,7 +115,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <img
                 src={language === 'ta' ? '/images/brand/logo_ta.png' : '/images/brand/logo.png'}
                 alt="Super Deluxe Softies & Smiles"
-                className="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                className={`${
+                  isScrolled ? 'h-12 sm:h-14 md:h-16' : 'h-14 sm:h-16 md:h-20 lg:h-[5.25rem]'
+                } w-auto object-contain transition-all duration-300 group-hover:scale-105`}
               />
             </a>
 
