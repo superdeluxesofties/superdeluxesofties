@@ -3,6 +3,20 @@ import { ArrowLeft, ArrowRight, Sparkles, Calendar, CheckCircle2 } from 'lucide-
 import { DAILY_FLAVOURS } from '../data/superDeluxeData';
 import { DailyFlavour } from '../types';
 
+const FLAVOUR_GRADIENTS: Record<string, string> = {
+  'Belgian Chocolate': 'linear-gradient(145deg, #6A4028, #3B2317)',
+  'Strawberry': 'linear-gradient(145deg, #FF9FB2, #FF5C7A)',
+  'Alphonso Mango': 'linear-gradient(145deg, #FFD074, #FF9E2C)',
+  'Black Currant': 'linear-gradient(145deg, #9B6AD1, #6B3FA0)',
+  'Butterscotch': 'linear-gradient(145deg, #E8B773, #C78A3C)',
+  'Pistachio': 'linear-gradient(145deg, #A8E6BE, #5FBE86)',
+  'Badam Kulfi': 'linear-gradient(145deg, #F3E3C0, #D9B877)',
+  'Coffee Bean': 'linear-gradient(145deg, #8A5A3C, #4A2E1C)',
+  'Pineapple': 'linear-gradient(145deg, #FFE169, #FFAE19)',
+  'Creamy French Vanilla': 'linear-gradient(145deg, #FFF3D6, #F0DCA8)',
+  'Rosemilk': 'linear-gradient(145deg, #FFC2D1, #FF8FB0)',
+};
+
 interface FlavourCarouselProps {
   currentFlavour: DailyFlavour;
   onSelectFlavour: (flavour: DailyFlavour) => void;
@@ -18,7 +32,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -260 : 260;
+      const scrollAmount = direction === 'left' ? -280 : 280;
       scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -80,7 +94,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
         {/* Horizontal Scroll Track */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-4 sm:gap-5 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-none"
+          className="flex gap-5 sm:gap-6 overflow-x-auto pb-6 pt-3 snap-x snap-mandatory scrollbar-none"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {DAILY_FLAVOURS.map((item: DailyFlavour) => {
@@ -89,58 +103,55 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
               <div
                 key={item.day}
                 onClick={() => onSelectFlavour(item)}
-                className={`snap-start shrink-0 w-[190px] sm:w-[220px] rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 relative group ${
+                className={`snap-start shrink-0 w-[215px] sm:w-[245px] rounded-[22px] p-2.5 sm:p-3 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out relative group ${
                   isToday
-                    ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow scale-102'
-                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-[#FFCC33]/60'
+                    ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow -translate-y-1 hover:-translate-y-3 hover:shadow-2xl'
+                    : 'bg-white text-chocolate border border-slate-200/90 shadow-soft hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
                 }`}
               >
-                {/* Top Badge: Today or Day X */}
-                <div className="flex items-center justify-between mb-3">
+                {/* Scoop Visual Container with Flavour Gradient */}
+                <div
+                  className="h-[185px] sm:h-[205px] w-full rounded-[18px] relative overflow-hidden flex items-center justify-center mb-2.5 p-1 transition-transform duration-300"
+                  style={{ background: FLAVOUR_GRADIENTS[item.name] || 'linear-gradient(145deg, #6A4028, #3B2317)' }}
+                >
+                  {/* Top Badge: Today or Day X */}
                   <span
-                    className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                    className={`absolute top-2 left-2 z-10 text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-transform duration-300 group-hover:scale-105 ${
                       isToday
-                        ? 'bg-[#cf0924] text-white font-display shadow-xs'
-                        : 'bg-white/15 text-blue-100'
+                        ? 'bg-[#FFCC33] text-[#1E0D08] font-black shadow-xs'
+                        : 'bg-black/40 backdrop-blur-md text-white border border-white/20'
                     }`}
                   >
                     {isToday ? "★ TODAY'S STAR" : item.dayLabel}
                   </span>
-                  {isToday && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#cf0924] animate-ping"></span>
-                  )}
-                </div>
 
-                {/* Product Poster / Visual */}
-                <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center mb-4 p-2 relative group-hover:scale-105 transition-transform duration-300">
+                  {/* Product Visual with Smooth Hover Zoom & Elevation */}
                   <img
                     src={item.cardImage}
                     alt={item.name}
-                    className="w-full h-full object-contain rounded-xl"
+                    className="w-full h-full object-contain filter drop-shadow-[0_12px_14px_rgba(42,21,16,0.25)] transition-transform duration-300 group-hover:scale-108 group-hover:rotate-1"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Flavor Name */}
-                <div>
-                  <h3 className={`text-base sm:text-lg font-display font-bold leading-tight ${
-                    isToday ? 'text-chocolate' : 'text-white'
-                  }`}>
+                {/* Flavor Title & Description */}
+                <div className="px-0.5">
+                  <h3 className="text-sm sm:text-base font-display font-bold leading-tight text-chocolate group-hover:text-[#2308ca] transition-colors">
                     {language === 'ta' && item.tamilName ? item.tamilName : item.name}
                   </h3>
-                  <p className={`text-xs mt-1 line-clamp-2 leading-relaxed ${
-                    isToday ? 'text-chocolate-muted' : 'text-blue-100'
-                  }`}>
+                  <p className="text-[11px] sm:text-xs text-chocolate-muted mt-0.5 line-clamp-2 leading-relaxed min-h-[30px] font-medium">
                     {item.tagline}
                   </p>
                 </div>
 
-                {/* Bottom Click to View */}
-                <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
-                  <span className={`text-[11px] font-bold ${isToday ? 'text-[#cf0924]' : 'text-[#FFCC33]'}`}>
-                    {isToday ? 'Serving Now' : 'Click to preview'}
+                {/* Bottom Action Row with Sliding Arrow */}
+                <div className="mt-2.5 pt-2 px-0.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
+                  <span className={isToday ? 'text-[#cf0924]' : 'text-[#2308ca] group-hover:text-[#cf0924] transition-colors'}>
+                    {isToday ? 'Serving Now' : 'Preview'}
                   </span>
-                  <span className="text-xs">→</span>
+                  <span className="text-sm font-black transition-transform duration-300 group-hover:translate-x-1.5 text-[#cf0924]">
+                    →
+                  </span>
                 </div>
               </div>
             );

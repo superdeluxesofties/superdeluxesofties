@@ -100,12 +100,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* ========================================================
-              CENTER COLUMN: MR. DELUXE MASCOT
+              CENTER COLUMN: MR. DELUXE MASCOT WITH FLOATING CHIPS
               ======================================================== */}
-          <div className="lg:col-span-3 flex justify-center order-first lg:order-none my-2 lg:my-0">
+          <div className="lg:col-span-3 flex justify-center order-first lg:order-none my-2 lg:my-0 relative">
             <div className="relative group cursor-pointer max-w-[260px] sm:max-w-[290px] w-full flex flex-col items-center">
               {/* Radiant Warm Golden Glow */}
               <div className="absolute inset-0 bg-[#FFCC33]/35 rounded-full filter blur-2xl scale-95 transition-transform group-hover:scale-110 pointer-events-none"></div>
+
+              {/* Floating Element 1 (Top Right): Fresh Churn Daily */}
+              <div className="absolute -top-3 -right-4 sm:-right-8 z-30 bg-white text-chocolate rounded-2xl px-3 sm:px-3.5 py-1.5 sm:py-2 shadow-floating border border-slate-100 flex items-center gap-1.5 sm:gap-2 font-bold text-xs pointer-events-none animate-bob">
+                <span className="text-lg sm:text-xl">🍦</span>
+                <span className="font-display font-extrabold text-[#2308ca] whitespace-nowrap">Fresh Churn Daily</span>
+              </div>
+
+              {/* Floating Element 2 (Middle Left): 4.9 Google Rating */}
+              <div className="absolute top-1/2 -left-6 sm:-left-12 -translate-y-1/2 z-30 bg-white text-chocolate rounded-2xl px-3 sm:px-3.5 py-1.5 sm:py-2 shadow-floating border border-slate-100 flex items-center gap-1.5 sm:gap-2 font-bold text-xs pointer-events-none animate-bob-slow">
+                <span className="text-lg sm:text-xl">⭐</span>
+                <span className="font-display font-extrabold text-chocolate whitespace-nowrap">4.9 Google Rating</span>
+              </div>
+
+              {/* Floating Element 3 (Bottom Right): 10 Flavours · 10 Days */}
+              <div className="absolute -bottom-2 -right-4 sm:-right-8 z-30 bg-[#FFCC33] text-[#1E0D08] rounded-2xl px-3 sm:px-3.5 py-1.5 sm:py-2 shadow-floating border-2 border-white flex items-center gap-1.5 sm:gap-2 font-bold text-xs pointer-events-none animate-bob-fast">
+                <span className="text-lg sm:text-xl">🎉</span>
+                <span className="font-display font-black text-[#1E0D08] whitespace-nowrap">10 Flavours · 10 Days</span>
+              </div>
 
               {/* Character Cutout Container */}
               <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]">

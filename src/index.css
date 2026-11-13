@@ -47,6 +47,65 @@
     font-family: 'Playfair Display', Georgia, serif;
     font-style: italic;
   }
+
+  /* Floating animation keyframes from reference repo */
+  @keyframes bob {
+    0%, 100% {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+    50% {
+      transform: translateY(10px) rotate(1.5deg);
+    }
+  }
+
+  @keyframes bob-delayed {
+    0%, 100% {
+      transform: translateY(10px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(-1.5deg);
+    }
+  }
+
+  @keyframes bob-fast {
+    0%, 100% {
+      transform: translateY(-6px) rotate(0.8deg);
+    }
+    50% {
+      transform: translateY(8px) rotate(-1deg);
+    }
+  }
+
+  @keyframes scrollx {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-bob {
+    animation: bob 5.5s ease-in-out infinite;
+  }
+
+  .animate-bob-slow {
+    animation: bob-delayed 6.8s ease-in-out 0.4s infinite;
+  }
+
+  .animate-bob-fast {
+    animation: bob-fast 4.8s ease-in-out 0.8s infinite;
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: scrollx 26s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }
 
 @layer components {

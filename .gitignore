@@ -19,3 +19,10 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# Raw root asset folders (already organized under public/images/)
+/10 day 10 flavour/
+/Dip cups/
+/Dip softy cones/
+/*.png
+

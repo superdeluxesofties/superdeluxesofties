@@ -146,7 +146,7 @@ export const FeaturedFlavour: React.FC<FeaturedFlavourProps> = ({
 
               {/* Right Column: Large Flavour Product Image */}
               <div className="lg:col-span-6 flex justify-center relative">
-                <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden p-4 flex items-center justify-center bg-white/95 shadow-2xl border-2 border-white/70">
+                <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden p-2 sm:p-3 flex items-center justify-center bg-white/95 shadow-2xl border-2 border-white/70">
                   
                   {/* Subtle flavour glow */}
                   <div

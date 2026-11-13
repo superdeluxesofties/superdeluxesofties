@@ -47,7 +47,7 @@ export const CombosSection: React.FC<CombosSectionProps> = ({
             <div
               key={combo.id}
               onClick={() => onSelectCombo(combo)}
-              className="group bg-white rounded-2xl p-4 border-2 border-slate-200 hover:border-[#2308ca] shadow-soft hover:shadow-floating hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer relative overflow-hidden"
+              className="group bg-white rounded-2xl p-3 sm:p-3.5 border-2 border-slate-200 hover:border-[#2308ca] shadow-soft hover:shadow-floating hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer relative overflow-hidden"
             >
               {/* Savings Badge in vibrant Red #cf0924 */}
               <div className="absolute top-3 right-3 z-10">
@@ -58,7 +58,7 @@ export const CombosSection: React.FC<CombosSectionProps> = ({
 
               <div>
                 {/* Visual Area */}
-                <div className="h-36 sm:h-40 w-full rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center p-2 mb-3 group-hover:bg-blue-50/20 transition-colors border border-slate-200/80">
+                <div className="h-36 sm:h-40 w-full rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center p-1 mb-2.5 group-hover:bg-blue-50/20 transition-colors border border-slate-200/80">
                   <img
                     src={combo.image}
                     alt={combo.name}

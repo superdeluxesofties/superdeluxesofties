@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Preloader } from './components/Preloader';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { MarqueeTicker } from './components/MarqueeTicker';
 import { StorySection } from './components/StorySection';
 import { MenuCategories } from './components/MenuCategories';
 import { FeaturedFlavour } from './components/FeaturedFlavour';
@@ -56,6 +58,9 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#E8F4FD] text-[#1E0D08]">
+      {/* 00: Initial Site Preloader */}
+      <Preloader language={language} />
+
       {/* 01: Navigation Bar */}
       <Navbar
         language={language}
@@ -72,6 +77,9 @@ export function App() {
           onSelectFlavour={handleSelectFlavour}
           language={language}
         />
+
+        {/* Running Marquee Elements below the Hero Page */}
+        <MarqueeTicker language={language} />
 
         {/* 03: Our Story ("Made with Love. Served with Smiles.") */}
         <StorySection language={language} />
