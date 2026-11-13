@@ -103,20 +103,20 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
               <div
                 key={item.day}
                 onClick={() => onSelectFlavour(item)}
-                className={`snap-start shrink-0 w-[175px] sm:w-[200px] rounded-[20px] px-1.5 pt-1.5 pb-2.5 sm:px-2 sm:pt-2 sm:pb-3 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out relative group ${
+                className={`snap-start shrink-0 w-[185px] sm:w-[210px] rounded-[24px] overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out relative group ${
                   isToday
                     ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow -translate-y-1 hover:-translate-y-3 hover:shadow-2xl'
                     : 'bg-white text-chocolate border border-slate-200/90 shadow-soft hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
                 }`}
               >
-                {/* Scoop Visual Container with Flavour Gradient */}
+                {/* Scoop Visual Container - 100% full width, flush to left & right borders, ZERO side padding */}
                 <div
-                  className="h-[195px] sm:h-[220px] w-full rounded-[16px] relative overflow-hidden flex items-center justify-center mb-2 p-0 transition-transform duration-300"
+                  className="h-[210px] sm:h-[235px] w-full relative overflow-hidden flex items-center justify-center p-0 transition-transform duration-300"
                   style={{ background: FLAVOUR_GRADIENTS[item.name] || 'linear-gradient(145deg, #6A4028, #3B2317)' }}
                 >
                   {/* Top Badge: Today or Day X */}
                   <span
-                    className={`absolute top-2 left-2 z-10 text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-transform duration-300 group-hover:scale-105 ${
+                    className={`absolute top-2.5 left-2.5 z-10 text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-transform duration-300 group-hover:scale-105 ${
                       isToday
                         ? 'bg-[#FFCC33] text-[#1E0D08] font-black shadow-xs'
                         : 'bg-black/40 backdrop-blur-md text-white border border-white/20'
@@ -125,33 +125,35 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                     {isToday ? "★ TODAY'S STAR" : item.dayLabel}
                   </span>
 
-                  {/* Product Visual with Smooth Hover Zoom & Elevation */}
+                  {/* Product Visual scaled to fill left & right width */}
                   <img
                     src={item.cardImage}
                     alt={item.name}
-                    className="w-full h-full object-contain scale-110 sm:scale-115 filter drop-shadow-[0_12px_14px_rgba(42,21,16,0.25)] transition-transform duration-300 group-hover:scale-125 group-hover:rotate-1"
+                    className="w-full h-full object-contain scale-[1.3] sm:scale-[1.38] filter drop-shadow-[0_14px_16px_rgba(42,21,16,0.3)] transition-transform duration-300 group-hover:scale-[1.48] group-hover:rotate-1"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Flavor Title & Description */}
-                <div className="px-1">
-                  <h3 className="text-sm sm:text-base font-display font-bold leading-tight text-chocolate group-hover:text-[#2308ca] transition-colors">
-                    {language === 'ta' && item.tamilName ? item.tamilName : item.name}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-chocolate-muted mt-0.5 line-clamp-2 leading-relaxed min-h-[30px] font-medium">
-                    {item.tagline}
-                  </p>
-                </div>
+                {/* Flavor Title & Details (inner text padding only) */}
+                <div className="p-3 pt-2.5 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className="text-sm sm:text-base font-display font-bold leading-tight text-chocolate group-hover:text-[#2308ca] transition-colors">
+                      {language === 'ta' && item.tamilName ? item.tamilName : item.name}
+                    </h3>
+                    <p className="text-[11px] sm:text-xs text-chocolate-muted mt-1 line-clamp-2 leading-relaxed min-h-[32px] font-medium">
+                      {item.tagline}
+                    </p>
+                  </div>
 
-                {/* Bottom Action Row with Sliding Arrow */}
-                <div className="mt-2 pt-2 px-1 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
-                  <span className={isToday ? 'text-[#cf0924]' : 'text-[#2308ca] group-hover:text-[#cf0924] transition-colors'}>
-                    {isToday ? 'Serving Now' : 'Preview'}
-                  </span>
-                  <span className="text-sm font-black transition-transform duration-300 group-hover:translate-x-1.5 text-[#cf0924]">
-                    →
-                  </span>
+                  {/* Bottom Action Row with Sliding Arrow */}
+                  <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
+                    <span className={isToday ? 'text-[#cf0924]' : 'text-[#2308ca] group-hover:text-[#cf0924] transition-colors'}>
+                      {isToday ? 'Serving Now' : 'Preview'}
+                    </span>
+                    <span className="text-sm font-black transition-transform duration-300 group-hover:translate-x-1.5 text-[#cf0924]">
+                      →
+                    </span>
+                  </div>
                 </div>
               </div>
             );

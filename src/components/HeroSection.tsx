@@ -210,12 +210,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </button>
                   </div>
 
-                  {/* Product Visual Container with softie cone cutout */}
-                  <div className="relative mt-4 aspect-square max-h-[220px] mx-auto flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-t from-slate-100 to-white border-2 border-white/80 p-2 shadow-md">
+                  {/* Product Visual Container with softie cone cutout - zero side padding, scaled to fill */}
+                  <div className="relative mt-4 aspect-square max-h-[220px] mx-auto flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-t from-slate-100 to-white border-2 border-white/80 p-0 shadow-md">
                     <img
                       src={todayFlavour.cardImage || '/images/10-day-10-flavour/Chocolate.png'}
                       alt={todayFlavour.name}
-                      className="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain scale-[1.18] transition-transform duration-500 group-hover:scale-[1.25]"
                     />
 
                     {/* Floating Price Pill in vibrant Yellow #FFCC33 */}
