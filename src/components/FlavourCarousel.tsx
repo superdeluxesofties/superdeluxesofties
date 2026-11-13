@@ -109,9 +109,9 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                     : 'bg-white text-chocolate border border-slate-200/90 shadow-soft hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
                 }`}
               >
-                {/* Scoop Visual Container - 100% full width, flush to left & right borders, ZERO side padding */}
+                {/* Scoop Visual Container - 100% full width, flush to left & right borders */}
                 <div
-                  className="h-[210px] sm:h-[235px] w-full relative overflow-hidden flex items-center justify-center p-0 transition-transform duration-300"
+                  className="h-[195px] sm:h-[220px] w-full relative overflow-hidden flex items-center justify-center p-2 sm:p-2.5 transition-transform duration-300"
                   style={{ background: FLAVOUR_GRADIENTS[item.name] || 'linear-gradient(145deg, #6A4028, #3B2317)' }}
                 >
                   {/* Top Badge: Today or Day X */}
@@ -125,11 +125,11 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                     {isToday ? "★ TODAY'S STAR" : item.dayLabel}
                   </span>
 
-                  {/* Product Visual scaled to fill left & right width */}
+                  {/* Product Visual - fully zoomed out to display entire cone */}
                   <img
                     src={item.cardImage}
                     alt={item.name}
-                    className="w-full h-full object-contain scale-[1.3] sm:scale-[1.38] filter drop-shadow-[0_14px_16px_rgba(42,21,16,0.3)] transition-transform duration-300 group-hover:scale-[1.48] group-hover:rotate-1"
+                    className="w-full h-full object-contain filter drop-shadow-[0_10px_14px_rgba(42,21,16,0.25)] transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1"
                     loading="lazy"
                   />
                 </div>
