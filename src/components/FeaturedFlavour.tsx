@@ -109,7 +109,7 @@ export const FeaturedFlavour: React.FC<FeaturedFlavourProps> = ({
                     }`}
                   >
                     <span>🥛</span>
-                    <span>Made with Real Milk &amp; Zero Added Oils</span>
+                    <span>Made with Real Milk. Zero Added Oils.</span>
                   </div>
                   <div className="flex items-center gap-1.5 bg-[#FFCC33] text-[#1E0D08] px-3 py-1.5 rounded-xl border border-white font-black shadow-xs">
                     <span>★</span>

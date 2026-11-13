@@ -4,7 +4,7 @@ export const STORE_INFO = {
   name: 'Super Deluxe',
   tagline: 'Softies & Smiles',
   slogan: 'More Than Softies. We Serve Smiles.',
-  subtext: 'Fresh ice cream. Real milk. Exciting flavours. Pocket-friendly prices.',
+  subtext: "Fresh Softies. Real Milk. Exciting Flavours. Prices You'll Love.",
   phone: '+91 94453 57733',
   phoneDisplay: '+91 94453 57733',
   whatsappUrl: 'https://wa.me/919445357733?text=Hi%20Super%20Deluxe%2C%20I%20would%20like%20to%20know%20more%20about%20today%27s%20flavours%20and%20menu!',
@@ -16,7 +16,7 @@ export const STORE_INFO = {
   instagramUrl: 'https://instagram.com/superdeluxesofties',
   youtube: 'Super Deluxe Softies',
   youtubeUrl: 'https://www.youtube.com/channel/UCx-0J0AmNvKu-cnTcuWZyxA',
-  pureMilkPledge: 'Made with real milk & zero added oils · 100% Vegetarian',
+  pureMilkPledge: 'Made with Real Milk. Zero Added Oils. · 100% Vegetarian',
 };
 
 export const MENU_CATEGORIES: Category[] = [

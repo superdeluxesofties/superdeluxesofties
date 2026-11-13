@@ -18,11 +18,11 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
     },
     {
       title: language === 'ta' ? 'உயர் தர தயாரிப்புகள்' : 'High Quality Products',
-      desc: language === 'ta' ? 'உண்மையான பால், பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with real milk & zero added oils, 10-day flavour rotation',
+      desc: language === 'ta' ? 'உண்மையான பால், பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with Real Milk. Zero Added Oils. 10-day flavour rotation',
     },
     {
       title: language === 'ta' ? 'நிரூபிக்கப்பட்ட வணிக முறை' : 'Proven Business Model',
-      desc: language === 'ta' ? 'குறைந்த முதலீடு, அதிக லாபம்' : 'Compact footprint, rapid turnaround, and robust gross margins',
+      desc: language === 'ta' ? 'குறைந்த முதலீடு, அதிக லாபம்' : 'Compact Outlets. Efficient Operations. Attractive Gross Margins.',
     },
     {
       title: language === 'ta' ? 'முழுமையான ஆதரவு' : 'End-to-End Operational Support',
@@ -62,7 +62,7 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
               <p className="mt-4 text-sm sm:text-base text-chocolate-muted max-w-lg font-medium leading-relaxed">
                 {language === 'ta'
                   ? 'எங்கள் வளரும் ஐஸ்கிரீம் குடும்பத்தில் இணையுங்கள். கியோஸ்க், பார்லர் அல்லது எக்ஸ்பிரஸ் விற்பனை நிலையங்களுக்கு இன்றே விண்ணப்பிக்கவும்.'
-                  : 'Bring the joy of Super Deluxe Softies & Smiles to your neighbourhood. We offer scalable parlour and kiosk models with full operational guidance.'}
+                  : 'Bring Super Deluxe Softies & Smiles to Your Neighbourhood. We offer scalable parlour and kiosk models with full operational guidance.'}
               </p>
 
               {/* 4 Key Points Checklist */}
@@ -105,16 +105,16 @@ export const FranchiseSection: React.FC<FranchiseSectionProps> = ({
             </div>
 
             {/* Right: Visual of Parlour + Mascot Banner */}
-            <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-3xl overflow-hidden shadow-floating border-4 border-[#FFCC33] bg-white">
+            <div className="lg:col-span-5 relative group max-w-[420px] mx-auto lg:max-w-none w-full">
+              <div className="relative rounded-3xl overflow-hidden shadow-floating border-4 border-[#FFCC33] bg-slate-900 flex items-center justify-center aspect-[3/4]">
                 <img
-                  src="/images/storefront/storefront.jpg"
+                  src="/images/storefront/outlet.png"
                   alt="Super Deluxe Storefront & Franchise Setup"
-                  className="w-full h-[380px] sm:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-chocolate-darker/80 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-chocolate-darker/80 via-transparent to-transparent pointer-events-none"></div>
 
                 {/* Overlaid Mascot Badge */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border-2 border-[#2308ca] flex items-center gap-3">

@@ -10,7 +10,7 @@ export const MarqueeTicker: React.FC<MarqueeTickerProps> = ({ language }) => {
         'உண்மையான பால்',
         'பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்',
         '100% தூய சைவம்',
-        'விலை ₹25 முதல்',
+        'விலை ₹25 முதல் தொடக்கம்',
         'தினமும் புதிதாக தயாரிக்கப்படுகிறது',
         'புன்னகையை பரிமாறுகிறோம்',
       ]
@@ -18,8 +18,8 @@ export const MarqueeTicker: React.FC<MarqueeTickerProps> = ({ language }) => {
         'REAL MILK',
         'ZERO ADDED OILS',
         '100% PURE VEG',
-        'FROM ₹25',
-        'FRESH CHURNED DAILY',
+        'STARTS FROM ₹25',
+        'FRESHLY CHURNED DAILY',
         'SERVING SMILES',
       ];
 

@@ -20,7 +20,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
     {
       num: '02',
       title: 'FRESHNESS IN EVERY SERVE.',
-      desc: 'Freshly prepared at your outlet, every day.',
+      desc: 'Freshly Prepared. Every Day.',
       icon: Sparkles,
       color: 'text-[#cf0924]',
       bg: 'bg-rose-50',
@@ -36,7 +36,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
     {
       num: '04',
       title: 'HAPPINESS FOR EVERYONE.',
-      desc: 'Premium indulgence at pocket-friendly prices.',
+      desc: 'Premium Indulgence. Prices for Everyone.',
       icon: Smile,
       color: 'text-[#2308ca]',
       bg: 'bg-blue-50',
@@ -68,7 +68,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
     {
       num: '08',
       title: 'ALWAYS SOMETHING NEW.',
-      desc: 'New flavours. New cravings. New reasons to return.',
+      desc: 'New Flavours. Fresh Cravings. Endless Reasons to Smile.',
       icon: RefreshCw,
       color: 'text-[#cf0924]',
       bg: 'bg-rose-50',
@@ -84,19 +84,19 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
             ======================================================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left: Storefront Photo */}
-          <div className="lg:col-span-5 relative group">
-            <div className="relative overflow-hidden rounded-2xl shadow-md border-3 border-white">
+          <div className="lg:col-span-5 relative group max-w-[420px] mx-auto lg:max-w-none w-full">
+            <div className="relative overflow-hidden rounded-2xl shadow-md border-3 border-white bg-slate-900 flex items-center justify-center aspect-[3/4]">
               <img
-                src="/images/storefront/storefront.jpg"
+                src="/images/storefront/outlet.png"
                 alt="Super Deluxe Softies Parlour Storefront"
-                className="w-full h-[280px] sm:h-[320px] object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 loading="lazy"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none"></div>
 
               {/* Verified Storefront Badge */}
-              <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-md border border-slate-200 flex items-center justify-between">
+              <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-md border border-slate-200 flex items-center justify-between z-10">
                 <div>
                   <div className="flex items-center gap-1.5 text-[11px] font-bold text-chocolate">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -118,8 +118,8 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
               </div>
             </div>
 
-            <div className="absolute -top-2.5 -left-2.5 bg-[#FFCC33] text-[#1E0D08] text-[10px] font-display font-extrabold py-1 px-3 rounded-full shadow-md border border-white">
-              Made with Real Milk &amp; Zero Added Oils
+            <div className="absolute -top-2.5 -left-2.5 bg-[#FFCC33] text-[#1E0D08] text-[10px] font-display font-extrabold py-1 px-3 rounded-full shadow-md border border-white z-20">
+              Made with Real Milk. Zero Added Oils.
             </div>
           </div>
 

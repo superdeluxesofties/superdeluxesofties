@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-bold uppercase tracking-wider mb-3 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#FFCC33]" />
-              <span>{language === 'ta' ? 'உண்மையான பால் • பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with Real Milk • Zero Added Oils'}</span>
+              <span>{language === 'ta' ? 'உண்மையான பால் • பூஜ்ஜிய சேர்க்கப்பட்ட எண்ணெய்' : 'Made with Real Milk. Zero Added Oils.'}</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-display font-bold text-white leading-[1.14] tracking-tight drop-shadow-sm">
@@ -46,13 +46,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="mt-3 max-w-md space-y-1.5">
               <p className="text-sm sm:text-base font-bold text-[#FFCC33]">
                 {language === 'ta'
-                  ? 'புதிய ஐஸ்கிரீம். உண்மையான பால். அற்புதமான சுவைகள். குறைந்த விலை.'
-                  : 'Fresh ice cream. Real milk. Exciting flavours. Pocket-friendly prices.'}
+                  ? 'புதிய சாஃப்டீஸ். உண்மையான பால். அற்புதமான சுவைகள். நீங்கள் விரும்பும் விலைகள்.'
+                  : "Fresh Softies. Real Milk. Exciting Flavours. Prices You'll Love."}
               </p>
               <p className="text-xs sm:text-sm text-white/95 font-medium leading-relaxed">
                 {language === 'ta'
-                  ? 'ஒவ்வொரு சுழற்சியும் ஒரு சாதாரண ஏக்கத்தை நினைவில் கொள்ளத்தக்க சிறிய தருணமாக மாற்ற வடிவமைக்கப்பட்டுள்ளது.'
-                  : 'Every swirl is crafted to turn an ordinary craving into a little moment worth remembering.'}
+                  ? 'ஒவ்வொரு சுழற்சியும் ஒரு சாதாரண ஏக்கத்தை நினைவில் கொள்ளத்தக்க ஒரு தருணமாக மாற்றுகிறது.'
+                  : 'Every swirl turns an everyday craving into a moment worth remembering.'}
               </p>
             </div>
 
@@ -81,20 +81,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Quick Micro Badges */}
             <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] font-bold">
-              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-[#0162C1] shadow-sm">
+              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-[#0162C1] shadow-sm font-extrabold">
                 <span>🥛</span>
                 <span>Made with Real Milk</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-emerald-800 shadow-sm">
+              <div className="flex items-center gap-1.5 bg-[#fee8eb] py-1 px-2.5 rounded-full border border-red-200 text-[#cf0924] shadow-sm font-extrabold">
                 <span>🌿</span>
                 <span>Zero Added Oils</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/95 py-1 px-2.5 rounded-full border border-white text-strawberry shadow-sm">
+              <div className="flex items-center gap-1.5 bg-emerald-50 py-1 px-2.5 rounded-full border border-emerald-200 text-emerald-700 shadow-sm font-extrabold">
                 <span>❤️</span>
                 <span>100% Pure Veg</span>
               </div>
               <div className="flex items-center gap-1.5 bg-[#FFCC33] py-1 px-2.5 rounded-full border border-white text-[#1E0D08] shadow-sm font-black">
-                <span>From ₹25</span>
+                <span>Starts From ₹25</span>
               </div>
             </div>
           </div>
