@@ -17,17 +17,17 @@ export const MascotShowcase: React.FC<MascotShowcaseProps> = ({ language }) => {
       <div
         key={expr.id}
         onClick={() => setSelectedExpression(expr)}
-        className={`group rounded-2xl p-2.5 border transition-all duration-300 flex flex-col items-center text-center cursor-pointer relative ${
+        className={`group rounded-xl sm:rounded-2xl px-1.5 py-2 sm:px-2 sm:py-2.5 border transition-all duration-300 flex flex-col items-center text-center cursor-pointer relative ${
           isSelected
             ? 'bg-white border-2 border-[#2308ca] shadow-medium scale-[1.03] ring-2 ring-[#2308ca]/30'
             : 'bg-white border-2 border-slate-200 shadow-soft hover:shadow-medium hover:-translate-y-1 hover:border-[#2308ca]/60'
         }`}
       >
-        <div className="aspect-square w-full rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center mb-2 group-hover:bg-white transition-colors border border-slate-200/80 p-1.5">
+        <div className="aspect-square w-full rounded-xl overflow-hidden bg-gradient-to-b from-blue-50/40 to-slate-50 flex items-center justify-center mb-1.5 group-hover:bg-white transition-colors border border-slate-200/80 p-0 relative">
           <img
             src={expr.image}
             alt={`Mr. Deluxe ${expr.label}`}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-contain scale-110 sm:scale-115 transition-transform duration-300 group-hover:scale-125"
             loading="lazy"
           />
         </div>
