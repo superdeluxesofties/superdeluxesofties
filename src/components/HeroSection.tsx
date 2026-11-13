@@ -126,11 +126,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Character Cutout Container */}
-              <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]">
+              <div className="relative z-10 transition-transform duration-500 group-hover:scale-105 filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)] rounded-[2.25rem] overflow-hidden border-2 border-white/60 shadow-2xl">
                 <img
-                  src="/images/mascot/hero.png"
+                  src="/images/mascot/hero_mascot.jpg"
                   alt="Mr. Deluxe — Super Deluxe Softies superhero mascot"
-                  className="w-full h-auto max-h-[360px] object-contain"
+                  className="w-full h-auto max-h-[380px] object-cover"
                   loading="eager"
                 />
               </div>
@@ -242,7 +242,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   OUR PROMISE
                 </span>
                 <h2 className="text-sm sm:text-base font-display font-black text-white">
-                  MADE WITH 100% REAL MILK
+                  MADE WITH REAL MILK
                 </h2>
               </div>
               <p className="text-[11px] sm:text-xs text-white/90 font-medium">
@@ -256,7 +256,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <span>01</span>
                   <span>🥛</span>
                 </div>
-                <div className="text-xs font-display font-bold text-white mt-0.5">100% REAL MILK</div>
+                <div className="text-xs font-display font-bold text-white mt-0.5">REAL MILK</div>
                 <p className="text-[10px] text-white/90 leading-snug">Made with real milk. ZERO ADDED OILS.</p>
               </div>
 

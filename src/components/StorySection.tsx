@@ -12,7 +12,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
     {
       num: '01',
       title: 'REAL MILK. REAL GOODNESS.',
-      desc: 'Creamy softies made with 100% real milk.',
+      desc: 'Creamy softies made with real milk.',
       icon: Milk,
       color: 'text-[#2308ca]',
       bg: 'bg-blue-50',
@@ -144,7 +144,7 @@ export const StorySection: React.FC<StorySectionProps> = ({ language }) => {
                 At Super Deluxe Softies, we believe every craving deserves something special.
               </p>
               <p>
-                Made with 100% real milk, freshly prepared, and bursting with exciting flavours, our softies turn everyday moments into little memories of happiness.
+                Made with real milk, freshly prepared, and bursting with exciting flavours, our softies turn everyday moments into little memories of happiness.
               </p>
               <p className="text-[#2308ca] font-bold text-base sm:text-lg pt-1 font-display">
                 Because we don't just serve desserts. We serve smiles.

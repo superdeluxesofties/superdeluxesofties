@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#FFCC33]/40 text-xs text-[#FFCC33] font-bold">
-              <span>🥛 100% Pure Milk</span>
+              <span>🥛 Real Milk</span>
               <span>•</span>
               <span>🌿 Pure Vegetarian</span>
             </div>

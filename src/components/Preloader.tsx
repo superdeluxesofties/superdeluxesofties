@@ -101,7 +101,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, language = 'en
         <p className="text-xs sm:text-sm text-blue-100 font-medium mt-3 min-h-[22px] animate-pulse">
           {language === 'ta'
             ? 'புதிய சாஃப்டீஸ் மற்றும் புன்னகைகளை தயார் செய்கிறோம்...'
-            : 'Churning fresh softies with 100% real milk...'}
+            : 'Churning fresh softies with real milk...'}
         </p>
 
         {/* Progress Bar Container */}
