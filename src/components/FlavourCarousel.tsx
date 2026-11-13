@@ -103,39 +103,39 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
               <div
                 key={item.day}
                 onClick={() => onSelectFlavour(item)}
-                className={`snap-start shrink-0 w-[185px] sm:w-[210px] rounded-[24px] overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out relative group ${
+                className={`snap-start shrink-0 w-[190px] sm:w-[220px] rounded-[28px] overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] relative group select-none ${
                   isToday
-                    ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow -translate-y-1 hover:-translate-y-3 hover:shadow-2xl'
-                    : 'bg-white text-chocolate border border-slate-200/90 shadow-soft hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
+                    ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow -translate-y-1 hover:-translate-y-2.5 hover:shadow-2xl'
+                    : 'bg-white text-chocolate border border-slate-200/90 shadow-md hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
                 }`}
               >
-                {/* Scoop Visual Container - 100% full width, flush to left & right borders */}
+                {/* Scoop Visual Container */}
                 <div
-                  className="h-[195px] sm:h-[220px] w-full relative overflow-hidden flex items-center justify-center p-2 sm:p-2.5 transition-transform duration-300"
+                  className="h-[195px] sm:h-[220px] w-full relative overflow-hidden flex items-center justify-center p-2 sm:p-2.5"
                   style={{ background: FLAVOUR_GRADIENTS[item.name] || 'linear-gradient(145deg, #6A4028, #3B2317)' }}
                 >
                   {/* Top Badge: Today or Day X */}
                   <span
-                    className={`absolute top-2.5 left-2.5 z-10 text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-transform duration-300 group-hover:scale-105 ${
+                    className={`absolute top-3 left-3 z-10 text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-transform duration-300 group-hover:scale-105 ${
                       isToday
                         ? 'bg-[#FFCC33] text-[#1E0D08] font-black shadow-xs'
-                        : 'bg-black/40 backdrop-blur-md text-white border border-white/20'
+                        : 'bg-black/35 backdrop-blur-md text-white border border-white/20'
                     }`}
                   >
                     {isToday ? "★ TODAY'S STAR" : item.dayLabel}
                   </span>
 
-                  {/* Product Visual - fully zoomed out to display entire cone */}
+                  {/* Product Visual with smooth lift & slight scale from reference */}
                   <img
                     src={item.cardImage}
                     alt={item.name}
-                    className="w-full h-full object-contain filter drop-shadow-[0_10px_14px_rgba(42,21,16,0.25)] transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1"
+                    className="w-full h-full object-contain filter drop-shadow-[0_12px_14px_rgba(0,0,0,0.22)] transition-transform duration-350 ease-out group-hover:scale-108 group-hover:-translate-y-1.5"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Flavor Title & Details (inner text padding only) */}
-                <div className="p-3 pt-2.5 flex flex-col justify-between flex-1">
+                {/* Flavor Title & Details */}
+                <div className="p-3.5 pt-3 flex flex-col justify-between flex-1">
                   <div>
                     <h3 className="text-sm sm:text-base font-display font-bold leading-tight text-chocolate group-hover:text-[#2308ca] transition-colors">
                       {language === 'ta' && item.tamilName ? item.tamilName : item.name}
@@ -146,11 +146,11 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                   </div>
 
                   {/* Bottom Action Row with Sliding Arrow */}
-                  <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
                     <span className={isToday ? 'text-[#cf0924]' : 'text-[#2308ca] group-hover:text-[#cf0924] transition-colors'}>
                       {isToday ? 'Serving Now' : 'Preview'}
                     </span>
-                    <span className="text-sm font-black transition-transform duration-300 group-hover:translate-x-1.5 text-[#cf0924]">
+                    <span className="text-sm font-black transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-[#cf0924]">
                       →
                     </span>
                   </div>
@@ -168,8 +168,8 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
           >
             <span>Check Today's Flavour →</span>
           </a>
-          <span className="text-xs text-blue-200/80">
-            Churned fresh at 11:00 AM everyday in Guduvanchery
+          <span className="text-xs text-blue-200/90 font-medium">
+            🕚 Churned fresh at 11:00 AM everyday in Our Master Outlet .
           </span>
         </div>
 
