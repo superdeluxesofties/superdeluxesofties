@@ -18,7 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
       {/* Decorative Milk Splash - Split Bottom-Left Corner */}
-      <div className="absolute -bottom-6 -left-10 sm:-left-4 lg:left-0 w-48 sm:w-64 lg:w-[360px] pointer-events-none z-0 select-none opacity-85 sm:opacity-90 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.18)]">
+      <div className="absolute -bottom-6 -left-10 sm:-left-4 lg:left-0 w-48 sm:w-64 lg:w-[360px] pointer-events-none z-0 select-none opacity-95 sm:opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
         <img
           src="/images/decorations/hero_milk_splash_left.png"
           alt=""
@@ -28,7 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Decorative Chocolate & Fruits Splash - Split Bottom-Right Corner */}
-      <div className="absolute -bottom-6 -right-10 sm:-right-4 lg:right-0 w-52 sm:w-72 lg:w-[390px] pointer-events-none z-0 select-none opacity-85 sm:opacity-95 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
+      <div className="absolute -bottom-6 -right-10 sm:-right-4 lg:right-0 w-52 sm:w-72 lg:w-[390px] pointer-events-none z-0 select-none opacity-95 sm:opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
         <img
           src="/images/decorations/hero_choco_splash_right.png"
           alt=""
