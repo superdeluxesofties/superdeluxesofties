@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Sparkles, Calendar, CheckCircle2 } from 'lucide-react';
 import { DAILY_FLAVOURS } from '../data/superDeluxeData';
 import { DailyFlavour } from '../types';
@@ -29,12 +29,114 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
   language,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardElementsRef = useRef<Map<number, HTMLDivElement>>(new Map());
+  const prevScrollLeft = useRef<number>(0);
+  const prevVisibleSet = useRef<Set<number>>(new Set());
+  const [poppingCards, setPoppingCards] = useState<Record<number, 'left' | 'right'>>({});
+
+  // Remove animation class after animation completes so hover effects remain crisp
+  const clearPop = (day: number) => {
+    setPoppingCards((prev) => {
+      if (!prev[day]) return prev;
+      const next = { ...prev };
+      delete next[day];
+      return next;
+    });
+  };
+
+  // Track cards entering visible viewport on scroll and trigger pop animation
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const checkVisibleCards = () => {
+      const containerRect = container.getBoundingClientRect();
+      const currentScroll = container.scrollLeft;
+      const isScrollingRight = currentScroll > prevScrollLeft.current;
+      const isScrollingLeft = currentScroll < prevScrollLeft.current;
+
+      const newVisibleSet = new Set<number>();
+      const newPops: Record<number, 'left' | 'right'> = {};
+
+      cardElementsRef.current.forEach((el, day) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        // Visible if card is within visible bounds of carousel track
+        const isVisible = rect.right > containerRect.left + 25 && rect.left < containerRect.right - 25;
+
+        if (isVisible) {
+          newVisibleSet.add(day);
+          // If the card was not visible previously, trigger a pop from the direction it arrived
+          if (!prevVisibleSet.current.has(day) && prevVisibleSet.current.size > 0) {
+            newPops[day] = isScrollingRight ? 'right' : isScrollingLeft ? 'left' : 'right';
+          }
+        }
+      });
+
+      if (Object.keys(newPops).length > 0) {
+        setPoppingCards((prev) => ({ ...prev, ...newPops }));
+      }
+
+      prevVisibleSet.current = newVisibleSet;
+      prevScrollLeft.current = currentScroll;
+    };
+
+    // Pre-populate initially visible cards so they don't fire an initial false pop
+    const timer = setTimeout(() => {
+      const containerRect = container.getBoundingClientRect();
+      cardElementsRef.current.forEach((el, day) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.right > containerRect.left + 25 && rect.left < containerRect.right - 25) {
+          prevVisibleSet.current.add(day);
+        }
+      });
+      prevScrollLeft.current = container.scrollLeft;
+    }, 150);
+
+    let rafId: number;
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(checkVisibleCards);
+    };
+
+    container.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(rafId);
+      container.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   const handleScroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -280 : 280;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const scrollAmount = direction === 'left' ? -300 : 300;
+    const containerRect = container.getBoundingClientRect();
+
+    // Anticipate incoming cards from left or right and immediately activate pop
+    const immediatePops: Record<number, 'left' | 'right'> = {};
+    cardElementsRef.current.forEach((el, day) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (direction === 'right') {
+        if (rect.left >= containerRect.right - 60 && rect.left <= containerRect.right + 360) {
+          immediatePops[day] = 'right';
+        }
+      } else {
+        if (rect.right <= containerRect.left + 60 && rect.right >= containerRect.left - 360) {
+          immediatePops[day] = 'left';
+        }
+      }
+    });
+
+    if (Object.keys(immediatePops).length > 0) {
+      setPoppingCards((prev) => ({ ...prev, ...immediatePops }));
     }
+
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   };
 
   return (
@@ -99,11 +201,23 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
         >
           {DAILY_FLAVOURS.map((item: DailyFlavour) => {
             const isToday = currentFlavour.day === item.day;
+            const popDir = poppingCards[item.day];
+            const popAnimClass = popDir === 'right'
+              ? 'animate-card-pop-right'
+              : popDir === 'left'
+                ? 'animate-card-pop-left'
+                : '';
+
             return (
               <div
                 key={item.day}
+                ref={(el) => {
+                  if (el) cardElementsRef.current.set(item.day, el);
+                  else cardElementsRef.current.delete(item.day);
+                }}
+                onAnimationEnd={() => clearPop(item.day)}
                 onClick={() => onSelectFlavour(item)}
-                className={`snap-start shrink-0 w-[190px] sm:w-[220px] rounded-[28px] overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] relative group select-none ${
+                className={`snap-start shrink-0 w-[190px] sm:w-[220px] rounded-[28px] overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] relative group select-none ${popAnimClass} ${
                   isToday
                     ? 'bg-white text-chocolate ring-4 ring-[#FFCC33] shadow-glow-yellow -translate-y-1 hover:-translate-y-2.5 hover:shadow-2xl'
                     : 'bg-white text-chocolate border border-slate-200/90 shadow-md hover:-translate-y-2.5 hover:shadow-floating hover:border-[#FFCC33]'
