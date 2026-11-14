@@ -17,22 +17,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
-      {/* Enlarged Translucent Milk Splash Stream - From Top to Down on Left */}
-      <div className="absolute inset-y-0 -left-6 sm:-left-4 lg:left-0 w-[280px] sm:w-[420px] lg:w-[580px] pointer-events-none z-0 select-none opacity-25 sm:opacity-35 overflow-hidden flex items-center justify-start">
+      {/* Enlarged Translucent Milk Fluid - Covering from Left-Top to Right-Bottom */}
+      <div className="absolute top-0 left-0 w-full lg:w-[85%] h-full pointer-events-none z-0 select-none opacity-25 sm:opacity-30 overflow-hidden flex items-start justify-start">
         <img
           src="/images/decorations/hero_milk_splash_left.png"
           alt=""
-          className="w-full h-full object-cover sm:object-contain object-left scale-110 sm:scale-125 origin-left"
+          className="w-full h-full object-cover lg:object-contain object-left-top origin-top-left scale-105"
           aria-hidden="true"
         />
       </div>
 
-      {/* Enlarged Translucent Chocolate & Fruit Splash - From Top to Down on Right */}
-      <div className="absolute inset-y-0 -right-6 sm:-right-4 lg:right-0 w-[300px] sm:w-[460px] lg:w-[620px] pointer-events-none z-0 select-none opacity-25 sm:opacity-35 overflow-hidden flex items-center justify-end">
+      {/* Enlarged Translucent Chocolate Fluid - Covering from Right-Top to Left-Bottom */}
+      <div className="absolute top-0 right-0 w-full lg:w-[85%] h-full pointer-events-none z-0 select-none opacity-25 sm:opacity-30 overflow-hidden flex items-start justify-end">
         <img
           src="/images/decorations/hero_choco_splash_right.png"
           alt=""
-          className="w-full h-full object-cover sm:object-contain object-right scale-110 sm:scale-125 origin-right"
+          className="w-full h-full object-cover lg:object-contain object-right-top origin-top-right scale-105"
           aria-hidden="true"
         />
       </div>
