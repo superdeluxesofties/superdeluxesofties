@@ -17,26 +17,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
-      {/* Decorative Milk Splash - Spanning from Top to Bottom on the Left */}
-      <div className="absolute inset-y-0 -left-6 sm:-left-2 lg:left-0 w-60 sm:w-80 lg:w-[480px] pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.22)] flex items-center justify-start">
-        <img
-          src="/images/decorations/hero_milk_splash_left.png"
-          alt=""
-          className="w-full h-full max-h-[700px] object-contain object-left"
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* Decorative Chocolate & Fruits Splash - Spanning from Top to Bottom on the Right */}
-      <div className="absolute inset-y-0 -right-6 sm:-right-2 lg:right-0 w-64 sm:w-84 lg:w-[500px] pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.25)] flex items-center justify-end">
-        <img
-          src="/images/decorations/hero_choco_splash_right.png"
-          alt=""
-          className="w-full h-full max-h-[700px] object-contain object-right"
-          aria-hidden="true"
-        />
-      </div>
-
       <div className="content-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
@@ -120,9 +100,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* ========================================================
-              CENTER COLUMN: MR. DELUXE MASCOT WITH FLOATING CHIPS
+              CENTER COLUMN: MR. DELUXE MASCOT WITH FLANKING SPLASHES & FLOATING CHIPS
               ======================================================== */}
           <div className="lg:col-span-3 flex justify-center order-first lg:order-none my-2 lg:my-0 relative">
+            
+            {/* Left Milk Splash (directly flanking hero mascot on left on phone & desktop) */}
+            <div className="absolute top-1/2 -translate-y-1/2 -left-10 sm:-left-20 md:-left-28 lg:-left-36 w-28 sm:w-44 md:w-52 lg:w-60 pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
+              <img
+                src="/images/decorations/hero_milk_splash_left.png"
+                alt=""
+                className="w-full h-auto object-contain"
+                aria-hidden="true"
+              />
+            </div>
+
+            {/* Right Chocolate & Fruits Splash (directly flanking hero mascot on right on phone & desktop) */}
+            <div className="absolute top-1/2 -translate-y-1/2 -right-10 sm:-right-20 md:-right-28 lg:-right-36 w-32 sm:w-48 md:w-56 lg:w-64 pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+              <img
+                src="/images/decorations/hero_choco_splash_right.png"
+                alt=""
+                className="w-full h-auto object-contain"
+                aria-hidden="true"
+              />
+            </div>
+
             <div className="relative group cursor-pointer max-w-[260px] sm:max-w-[290px] w-full flex flex-col items-center">
               {/* Radiant Warm Golden Glow */}
               <div className="absolute inset-0 bg-[#FFCC33]/35 rounded-full filter blur-2xl scale-95 transition-transform group-hover:scale-110 pointer-events-none"></div>
