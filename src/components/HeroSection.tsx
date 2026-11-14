@@ -17,22 +17,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
-      {/* Desktop (lg+): Translucent Milk Fluid - Covering from Left-Top to Right-Bottom */}
-      <div className="hidden lg:flex absolute top-0 left-0 w-[85%] h-full pointer-events-none z-0 select-none opacity-30 overflow-hidden items-start justify-start">
+      {/* Desktop (lg+): Decorative Milk Splash from commit e9111f9 */}
+      <div className="hidden lg:block absolute -bottom-6 left-0 w-[360px] pointer-events-none z-0 select-none opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
         <img
           src="/images/decorations/hero_milk_splash_left.png"
           alt=""
-          className="w-full h-full object-contain object-left-top origin-top-left scale-105"
+          className="w-full h-auto object-contain"
           aria-hidden="true"
         />
       </div>
 
-      {/* Desktop (lg+): Translucent Chocolate Fluid - Covering from Right-Top to Left-Bottom */}
-      <div className="hidden lg:flex absolute top-0 right-0 w-[85%] h-full pointer-events-none z-0 select-none opacity-30 overflow-hidden items-start justify-end">
+      {/* Desktop (lg+): Decorative Chocolate & Fruits Splash from commit e9111f9 */}
+      <div className="hidden lg:block absolute -bottom-6 right-0 w-[390px] pointer-events-none z-0 select-none opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
         <img
           src="/images/decorations/hero_choco_splash_right.png"
           alt=""
-          className="w-full h-full object-contain object-right-top origin-top-right scale-105"
+          className="w-full h-auto object-contain"
           aria-hidden="true"
         />
       </div>
