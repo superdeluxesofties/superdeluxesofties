@@ -17,22 +17,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
-      {/* Enlarged Translucent Milk Fluid - Covering from Left-Top to Right-Bottom */}
-      <div className="absolute top-0 left-0 w-full lg:w-[85%] h-full pointer-events-none z-0 select-none opacity-25 sm:opacity-30 overflow-hidden flex items-start justify-start">
+      {/* Desktop (lg+): Translucent Milk Fluid - Covering from Left-Top to Right-Bottom */}
+      <div className="hidden lg:flex absolute top-0 left-0 w-[85%] h-full pointer-events-none z-0 select-none opacity-30 overflow-hidden items-start justify-start">
         <img
           src="/images/decorations/hero_milk_splash_left.png"
           alt=""
-          className="w-full h-full object-cover lg:object-contain object-left-top origin-top-left scale-105"
+          className="w-full h-full object-contain object-left-top origin-top-left scale-105"
           aria-hidden="true"
         />
       </div>
 
-      {/* Enlarged Translucent Chocolate Fluid - Covering from Right-Top to Left-Bottom */}
-      <div className="absolute top-0 right-0 w-full lg:w-[85%] h-full pointer-events-none z-0 select-none opacity-25 sm:opacity-30 overflow-hidden flex items-start justify-end">
+      {/* Desktop (lg+): Translucent Chocolate Fluid - Covering from Right-Top to Left-Bottom */}
+      <div className="hidden lg:flex absolute top-0 right-0 w-[85%] h-full pointer-events-none z-0 select-none opacity-30 overflow-hidden items-start justify-end">
         <img
           src="/images/decorations/hero_choco_splash_right.png"
           alt=""
-          className="w-full h-full object-cover lg:object-contain object-right-top origin-top-right scale-105"
+          className="w-full h-full object-contain object-right-top origin-top-right scale-105"
           aria-hidden="true"
         />
       </div>
@@ -120,9 +120,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* ========================================================
-              CENTER COLUMN: MR. DELUXE MASCOT WITH FLOATING CHIPS
+              CENTER COLUMN: MR. DELUXE MASCOT WITH FLANKING SPLASHES & FLOATING CHIPS
               ======================================================== */}
           <div className="lg:col-span-3 flex justify-center order-first lg:order-none my-2 lg:my-0 relative">
+            
+            {/* Mobile/Tablet (< lg): Left Milk Splash directly flanking hero mascot */}
+            <div className="lg:hidden absolute top-1/2 -translate-y-1/2 -left-10 sm:-left-20 md:-left-28 w-28 sm:w-44 md:w-52 pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
+              <img
+                src="/images/decorations/hero_milk_splash_left.png"
+                alt=""
+                className="w-full h-auto object-contain"
+                aria-hidden="true"
+              />
+            </div>
+
+            {/* Mobile/Tablet (< lg): Right Chocolate & Fruits Splash directly flanking hero mascot */}
+            <div className="lg:hidden absolute top-1/2 -translate-y-1/2 -right-10 sm:-right-20 md:-right-28 w-32 sm:w-48 md:w-56 pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+              <img
+                src="/images/decorations/hero_choco_splash_right.png"
+                alt=""
+                className="w-full h-auto object-contain"
+                aria-hidden="true"
+              />
+            </div>
+
             <div className="relative group cursor-pointer max-w-[260px] sm:max-w-[290px] w-full flex flex-col items-center">
               {/* Radiant Warm Golden Glow */}
               <div className="absolute inset-0 bg-[#FFCC33]/35 rounded-full filter blur-2xl scale-95 transition-transform group-hover:scale-110 pointer-events-none"></div>
