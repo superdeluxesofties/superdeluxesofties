@@ -107,51 +107,75 @@
     animation-play-state: paused;
   }
 
-  /* Playful Pop animations for carousel cards coming from left or right */
+  /* Playful Pop animations for carousel cards coming from left or right on ALL devices */
   @keyframes cardPopFromRight {
     0% {
-      transform: scale(0.85) translateX(32px) rotate(2deg);
-      opacity: 0.65;
+      transform: scale3d(0.82, 0.82, 1) translate3d(26px, 6px, 0) rotate(2deg);
+      opacity: 0.6;
     }
-    55% {
-      transform: scale(1.06) translateX(-6px) rotate(-1deg);
+    50% {
+      transform: scale3d(1.08, 1.08, 1) translate3d(-5px, -2px, 0) rotate(-1deg);
       opacity: 1;
     }
-    80% {
-      transform: scale(0.98) translateX(2px) rotate(0.5deg);
+    75% {
+      transform: scale3d(0.97, 0.97, 1) translate3d(2px, 1px, 0) rotate(0.4deg);
     }
     100% {
-      transform: scale(1) translateX(0) rotate(0deg);
+      transform: scale3d(1, 1, 1) translate3d(0, 0, 0) rotate(0deg);
       opacity: 1;
     }
   }
 
   @keyframes cardPopFromLeft {
     0% {
-      transform: scale(0.85) translateX(-32px) rotate(-2deg);
-      opacity: 0.65;
+      transform: scale3d(0.82, 0.82, 1) translate3d(-26px, 6px, 0) rotate(-2deg);
+      opacity: 0.6;
     }
-    55% {
-      transform: scale(1.06) translateX(6px) rotate(1deg);
+    50% {
+      transform: scale3d(1.08, 1.08, 1) translate3d(5px, -2px, 0) rotate(1deg);
       opacity: 1;
     }
-    80% {
-      transform: scale(0.98) translateX(-2px) rotate(-0.5deg);
+    75% {
+      transform: scale3d(0.97, 0.97, 1) translate3d(-2px, 1px, 0) rotate(-0.4deg);
     }
     100% {
-      transform: scale(1) translateX(0) rotate(0deg);
+      transform: scale3d(1, 1, 1) translate3d(0, 0, 0) rotate(0deg);
       opacity: 1;
     }
   }
 
   .animate-card-pop-right {
-    animation: cardPopFromRight 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation: cardPopFromRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-origin: center center;
     will-change: transform, opacity;
   }
 
   .animate-card-pop-left {
-    animation: cardPopFromLeft 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation: cardPopFromLeft 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-origin: center center;
     will-change: transform, opacity;
+  }
+
+  /* Make cone inside also spring delightfully when card pops */
+  .animate-card-pop-right img,
+  .animate-card-pop-left img {
+    animation: conePopSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  @keyframes conePopSpring {
+    0% {
+      transform: scale3d(0.88, 0.88, 1);
+    }
+    55% {
+      transform: scale3d(1.12, 1.12, 1) translateY(-3px);
+    }
+    100% {
+      transform: scale3d(1, 1, 1) translateY(0);
+    }
   }
 }
 

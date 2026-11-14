@@ -32,6 +32,9 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
   const cardElementsRef = useRef<Map<number, HTMLDivElement>>(new Map());
   const prevScrollLeft = useRef<number>(0);
   const prevVisibleSet = useRef<Set<number>>(new Set());
+  const scrollDirectionRef = useRef<'left' | 'right'>('right');
+  const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
   const [poppingCards, setPoppingCards] = useState<Record<number, 'left' | 'right'>>({});
 
   // Remove animation class after animation completes so hover effects remain crisp
@@ -44,67 +47,95 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
     });
   };
 
-  // Track cards entering visible viewport on scroll and trigger pop animation
+  // Touch gesture listeners to capture swipe direction on mobile & tablet
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const deltaX = e.touches[0].clientX - touchStartX.current;
+    const deltaY = e.touches[0].clientY - touchStartY.current;
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 6) {
+      // Swiping finger to left = scrolling track forward = cards entering from right
+      // Swiping finger to right = scrolling track backward = cards entering from left
+      scrollDirectionRef.current = deltaX < 0 ? 'right' : 'left';
+    }
+  };
+
+  // High-performance IntersectionObserver & Scroll handler for all devices (Mobile, Tablet, Desktop)
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const checkVisibleCards = () => {
-      const containerRect = container.getBoundingClientRect();
-      const currentScroll = container.scrollLeft;
-      const isScrollingRight = currentScroll > prevScrollLeft.current;
-      const isScrollingLeft = currentScroll < prevScrollLeft.current;
+    let isReady = false;
 
-      const newVisibleSet = new Set<number>();
-      const newPops: Record<number, 'left' | 'right'> = {};
+    // Native IntersectionObserver operates smoothly inside mobile compositors
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!isReady) return;
+        const newPops: Record<number, 'left' | 'right'> = {};
 
-      cardElementsRef.current.forEach((el, day) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        // Visible if card is within visible bounds of carousel track
-        const isVisible = rect.right > containerRect.left + 25 && rect.left < containerRect.right - 25;
+        entries.forEach((entry) => {
+          const day = Number(entry.target.getAttribute('data-day'));
+          if (!day) return;
 
-        if (isVisible) {
-          newVisibleSet.add(day);
-          // If the card was not visible previously, trigger a pop from the direction it arrived
-          if (!prevVisibleSet.current.has(day) && prevVisibleSet.current.size > 0) {
-            newPops[day] = isScrollingRight ? 'right' : isScrollingLeft ? 'left' : 'right';
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+            if (!prevVisibleSet.current.has(day)) {
+              newPops[day] = scrollDirectionRef.current;
+              prevVisibleSet.current.add(day);
+            }
+          } else if (!entry.isIntersecting || entry.intersectionRatio < 0.1) {
+            // Remove when scrolled out of view so it can pop again when re-entering
+            prevVisibleSet.current.delete(day);
           }
+        });
+
+        if (Object.keys(newPops).length > 0) {
+          setPoppingCards((prev) => ({ ...prev, ...newPops }));
         }
-      });
-
-      if (Object.keys(newPops).length > 0) {
-        setPoppingCards((prev) => ({ ...prev, ...newPops }));
+      },
+      {
+        root: container,
+        threshold: [0.1, 0.2, 0.5],
       }
+    );
 
-      prevVisibleSet.current = newVisibleSet;
-      prevScrollLeft.current = currentScroll;
-    };
+    // Observe each card
+    cardElementsRef.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
 
-    // Pre-populate initially visible cards so they don't fire an initial false pop
-    const timer = setTimeout(() => {
+    // Populate initially visible cards after initial render without triggering false pops
+    const initTimer = setTimeout(() => {
       const containerRect = container.getBoundingClientRect();
       cardElementsRef.current.forEach((el, day) => {
         if (!el) return;
         const rect = el.getBoundingClientRect();
-        if (rect.right > containerRect.left + 25 && rect.left < containerRect.right - 25) {
+        if (rect.right > containerRect.left + 20 && rect.left < containerRect.right - 20) {
           prevVisibleSet.current.add(day);
         }
       });
+      isReady = true;
       prevScrollLeft.current = container.scrollLeft;
-    }, 150);
+    }, 120);
 
-    let rafId: number;
+    // Fallback scroll listener keeps track of scroll direction and triggers quick swipe updates
     const onScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(checkVisibleCards);
+      const currentScroll = container.scrollLeft;
+      if (currentScroll > prevScrollLeft.current + 1) {
+        scrollDirectionRef.current = 'right';
+      } else if (currentScroll < prevScrollLeft.current - 1) {
+        scrollDirectionRef.current = 'left';
+      }
+      prevScrollLeft.current = currentScroll;
     };
 
     container.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(rafId);
+      clearTimeout(initTimer);
+      observer.disconnect();
       container.removeEventListener('scroll', onScroll);
     };
   }, []);
@@ -113,6 +144,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    scrollDirectionRef.current = direction;
     const scrollAmount = direction === 'left' ? -300 : 300;
     const containerRect = container.getBoundingClientRect();
 
@@ -196,6 +228,8 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
         {/* Horizontal Scroll Track */}
         <div
           ref={scrollContainerRef}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
           className="flex gap-4 sm:gap-5 overflow-x-auto pb-6 pt-3 snap-x snap-mandatory scrollbar-none"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
@@ -211,6 +245,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
             return (
               <div
                 key={item.day}
+                data-day={item.day}
                 ref={(el) => {
                   if (el) cardElementsRef.current.set(item.day, el);
                   else cardElementsRef.current.delete(item.day);
