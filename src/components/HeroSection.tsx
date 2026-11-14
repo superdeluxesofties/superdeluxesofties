@@ -17,22 +17,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section id="hero" className="relative overflow-hidden pt-5 pb-12 md:pt-8 md:pb-16 bg-[#108DEA]">
-      {/* Decorative Milk Splash - Split Bottom-Left Corner */}
-      <div className="absolute -bottom-6 -left-10 sm:-left-4 lg:left-0 w-48 sm:w-64 lg:w-[360px] pointer-events-none z-0 select-none opacity-95 sm:opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.22)]">
+      {/* Decorative Milk Splash - Spanning from Top to Bottom on the Left */}
+      <div className="absolute inset-y-0 -left-6 sm:-left-2 lg:left-0 w-60 sm:w-80 lg:w-[480px] pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.22)] flex items-center justify-start">
         <img
           src="/images/decorations/hero_milk_splash_left.png"
           alt=""
-          className="w-full h-auto object-contain"
+          className="w-full h-full max-h-[700px] object-contain object-left"
           aria-hidden="true"
         />
       </div>
 
-      {/* Decorative Chocolate & Fruits Splash - Split Bottom-Right Corner */}
-      <div className="absolute -bottom-6 -right-10 sm:-right-4 lg:right-0 w-52 sm:w-72 lg:w-[390px] pointer-events-none z-0 select-none opacity-95 sm:opacity-100 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+      {/* Decorative Chocolate & Fruits Splash - Spanning from Top to Bottom on the Right */}
+      <div className="absolute inset-y-0 -right-6 sm:-right-2 lg:right-0 w-64 sm:w-84 lg:w-[500px] pointer-events-none z-0 select-none opacity-90 sm:opacity-95 filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.25)] flex items-center justify-end">
         <img
           src="/images/decorations/hero_choco_splash_right.png"
           alt=""
-          className="w-full h-auto object-contain"
+          className="w-full h-full max-h-[700px] object-contain object-right"
           aria-hidden="true"
         />
       </div>
