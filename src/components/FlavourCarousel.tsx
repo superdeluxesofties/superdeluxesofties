@@ -32,10 +32,9 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
   const cardElementsRef = useRef<Map<number, HTMLDivElement>>(new Map());
   const prevScrollLeft = useRef<number>(0);
   const prevVisibleSet = useRef<Set<number>>(new Set());
-  const scrollDirectionRef = useRef<'left' | 'right'>('right');
   const touchStartX = useRef<number>(0);
   const touchStartY = useRef<number>(0);
-  const [poppingCards, setPoppingCards] = useState<Record<number, 'left' | 'right'>>({});
+  const [poppingCards, setPoppingCards] = useState<Record<number, boolean>>({});
 
   // Remove animation class after animation completes so hover effects remain crisp
   const clearPop = (day: number) => {
@@ -47,20 +46,14 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
     });
   };
 
-  // Touch gesture listeners to capture swipe direction on mobile & tablet
+  // Touch gesture listeners to capture swipe actions on mobile & tablet
   const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = e.touches[0].clientX;
     touchStartY.current = e.touches[0].clientY;
   };
 
   const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    const deltaX = e.touches[0].clientX - touchStartX.current;
-    const deltaY = e.touches[0].clientY - touchStartY.current;
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 6) {
-      // Swiping finger to left = scrolling track forward = cards entering from right
-      // Swiping finger to right = scrolling track backward = cards entering from left
-      scrollDirectionRef.current = deltaX < 0 ? 'right' : 'left';
-    }
+    // Touch move updates
   };
 
   // High-performance IntersectionObserver & Scroll handler for all devices (Mobile, Tablet, Desktop)
@@ -74,7 +67,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         if (!isReady) return;
-        const newPops: Record<number, 'left' | 'right'> = {};
+        const newPops: Record<number, boolean> = {};
 
         entries.forEach((entry) => {
           const day = Number(entry.target.getAttribute('data-day'));
@@ -82,7 +75,7 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
 
           if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
             if (!prevVisibleSet.current.has(day)) {
-              newPops[day] = scrollDirectionRef.current;
+              newPops[day] = true;
               prevVisibleSet.current.add(day);
             }
           } else if (!entry.isIntersecting || entry.intersectionRatio < 0.1) {
@@ -120,23 +113,9 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
       prevScrollLeft.current = container.scrollLeft;
     }, 120);
 
-    // Fallback scroll listener keeps track of scroll direction and triggers quick swipe updates
-    const onScroll = () => {
-      const currentScroll = container.scrollLeft;
-      if (currentScroll > prevScrollLeft.current + 1) {
-        scrollDirectionRef.current = 'right';
-      } else if (currentScroll < prevScrollLeft.current - 1) {
-        scrollDirectionRef.current = 'left';
-      }
-      prevScrollLeft.current = currentScroll;
-    };
-
-    container.addEventListener('scroll', onScroll, { passive: true });
-
     return () => {
       clearTimeout(initTimer);
       observer.disconnect();
-      container.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -144,22 +123,21 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    scrollDirectionRef.current = direction;
     const scrollAmount = direction === 'left' ? -300 : 300;
     const containerRect = container.getBoundingClientRect();
 
-    // Anticipate incoming cards from left or right and immediately activate pop
-    const immediatePops: Record<number, 'left' | 'right'> = {};
+    // Anticipate incoming cards from left or right and immediately activate down-to-up pop
+    const immediatePops: Record<number, boolean> = {};
     cardElementsRef.current.forEach((el, day) => {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       if (direction === 'right') {
         if (rect.left >= containerRect.right - 60 && rect.left <= containerRect.right + 360) {
-          immediatePops[day] = 'right';
+          immediatePops[day] = true;
         }
       } else {
         if (rect.right <= containerRect.left + 60 && rect.right >= containerRect.left - 360) {
-          immediatePops[day] = 'left';
+          immediatePops[day] = true;
         }
       }
     });
@@ -235,12 +213,8 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
         >
           {DAILY_FLAVOURS.map((item: DailyFlavour) => {
             const isToday = currentFlavour.day === item.day;
-            const popDir = poppingCards[item.day];
-            const popAnimClass = popDir === 'right'
-              ? 'animate-card-pop-right'
-              : popDir === 'left'
-                ? 'animate-card-pop-left'
-                : '';
+            const isPopping = Boolean(poppingCards[item.day]);
+            const popAnimClass = isPopping ? 'animate-card-pop-up' : '';
 
             return (
               <div
@@ -283,25 +257,15 @@ export const FlavourCarousel: React.FC<FlavourCarouselProps> = ({
                   />
                 </div>
 
-                {/* Flavor Title & Details */}
-                <div className="p-3.5 pt-3 flex flex-col justify-between flex-1">
+                {/* Flavor Title & Details (Preview option removed) */}
+                <div className="p-3.5 pt-3 pb-4 flex flex-col justify-between flex-1">
                   <div>
                     <h3 className="text-sm sm:text-base font-display font-bold leading-tight text-chocolate group-hover:text-[#2308ca] transition-colors">
                       {language === 'ta' && item.tamilName ? item.tamilName : item.name}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-chocolate-muted mt-1 line-clamp-2 leading-relaxed min-h-[32px] font-medium">
+                    <p className="text-[11px] sm:text-xs text-chocolate-muted mt-1.5 line-clamp-2 leading-relaxed min-h-[32px] font-medium">
                       {item.tagline}
                     </p>
-                  </div>
-
-                  {/* Bottom Action Row with Sliding Arrow */}
-                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
-                    <span className={isToday ? 'text-[#cf0924]' : 'text-[#2308ca] group-hover:text-[#cf0924] transition-colors'}>
-                      {isToday ? 'Serving Now' : 'Preview'}
-                    </span>
-                    <span className="text-sm font-black transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-[#cf0924]">
-                      →
-                    </span>
                   </div>
                 </div>
               </div>
